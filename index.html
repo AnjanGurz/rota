@@ -3,749 +3,841 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>French Master Plan — CLB 7</title>
+<title>French Bootcamp — CLB 7</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
-:root{
-  --bg:#0e0f11;--surface:#16181c;--surface2:#1e2026;--border:#2a2d35;
-  --text:#e8eaf0;--muted:#6b7280;--hint:#3d4148;
-  --blue:#4f9eff;--green:#3ecf8e;--amber:#f59e0b;--red:#ef4444;--purple:#a78bfa;--pink:#f472b6;
-  --blue-bg:#0d2a4a;--green-bg:#0d2a1e;--amber-bg:#2a1a00;--red-bg:#2a0d0d;--purple-bg:#1a0d2a;
-  --mono:'DM Mono',monospace;--sans:'Sora',sans-serif;
-}
+:root{--bg:#0e0f11;--sf:#16181c;--sf2:#1e2026;--bd:#2a2d35;--tx:#e8eaf0;--mu:#6b7280;--hi:#3d4148;--bl:#4f9eff;--gn:#3ecf8e;--am:#f59e0b;--rd:#ef4444;--pu:#a78bfa;--pk:#f472b6;--bl2:#0d2a4a;--gn2:#0d2a1e;--am2:#2a1a00;--rd2:#2a0d0d;--pu2:#1a0d2a;--mn:'DM Mono',monospace;--sn:'Sora',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;min-height:100vh;padding-bottom:4rem}
-a{color:var(--blue);text-decoration:none}
-
-/* ── TOP HEADER ── */
-.top-header{max-width:800px;margin:0 auto;padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
-.tag{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
-.top-header h1{font-size:22px;font-weight:600;margin-bottom:.25rem}
-.top-header p{font-size:13px;color:var(--muted);font-weight:300}
-
-/* ── MAIN TABS ── */
-.main-tabs{max-width:800px;margin:1.25rem auto 0;padding:0 1.5rem;display:flex;gap:6px;flex-wrap:wrap}
-.main-tab{font-family:var(--mono);font-size:11px;padding:5px 14px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;letter-spacing:.05em;transition:all .15s}
-.main-tab:hover{border-color:var(--blue);color:var(--blue)}
-.main-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:500}
-.main-tab.g.active{background:var(--green);border-color:var(--green)}
-.main-tab.g{color:var(--green);border-color:#1a3d2e}
-.main-tab.p.active{background:var(--purple);border-color:var(--purple)}
-.main-tab.p{color:var(--purple);border-color:#2a1a3d}
-
-/* ── CONTENT WRAPPER ── */
-.content{max-width:800px;margin:1.5rem auto 0;padding:0 1.5rem}
+body{background:var(--bg);color:var(--tx);font-family:var(--sn);font-size:14px;min-height:100vh;padding-bottom:5rem}
+/* base */
+h2{font-size:17px;font-weight:500;color:var(--tx);margin-bottom:.9rem}
+h3{font-size:13px;font-weight:500;color:var(--tx);margin-bottom:.6rem}
+p{font-size:13px;color:var(--mu);line-height:1.7;font-weight:300}
+/* layout */
+.top-header{max-width:820px;margin:0 auto;padding:1.5rem 1.5rem .85rem;border-bottom:1px solid var(--bd)}
+.tag{font-family:var(--mn);font-size:11px;color:var(--gn);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.top-header h1{font-size:21px;font-weight:600;margin-bottom:.15rem}
+.top-header p{font-size:12px;color:var(--mu);font-weight:300}
+.main-tabs{max-width:820px;margin:.9rem auto 0;padding:0 1.5rem;display:flex;gap:5px;flex-wrap:wrap}
+.mt{font-family:var(--mn);font-size:11px;padding:5px 12px;border-radius:4px;border:1px solid var(--bd);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.05em;transition:all .15s}
+.mt:hover{border-color:var(--bl);color:var(--bl)}
+.mt.active{background:var(--bl);color:#000;border-color:var(--bl);font-weight:500}
+.mt.g{color:var(--gn);border-color:#1a3d2e}.mt.g.active{background:var(--gn);border-color:var(--gn);color:#000}
+.mt.p{color:var(--pu);border-color:#2a1a3d}.mt.p.active{background:var(--pu);border-color:var(--pu);color:#000}
+.mt.a{color:var(--am);border-color:#2a1a00}.mt.a.active{background:var(--am);border-color:var(--am);color:#000}
+.mt.r{color:var(--rd);border-color:#3d1515}.mt.r.active{background:var(--rd);border-color:var(--rd);color:#000}
+.content{max-width:820px;margin:1.2rem auto 0;padding:0 1.5rem}
 .page{display:none}.page.active{display:block}
-
-/* ── SUB TABS ── */
-.sub-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
-.sub-tab{padding:5px 13px;border-radius:20px;border:.5px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
-.sub-tab:hover{color:var(--text)}
-.sub-tab.active{background:var(--surface2);color:var(--text);border-color:#3d4148}
-.sub-view{display:none}.sub-view.active{display:block}
-
-/* ── BLOCKS ── */
-.block{border-radius:8px;padding:.9rem 1.1rem;margin-bottom:8px;border:.5px solid var(--border);background:var(--surface);position:relative;overflow:hidden}
-.block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.bl-blue::before{background:var(--blue)}
-.bl-green::before{background:var(--green)}
-.bl-amber::before{background:var(--amber)}
-.bl-red::before{background:var(--red)}
-.bl-purple::before{background:var(--purple)}
-.bl-muted::before{background:var(--border)}
-.bl-pink::before{background:var(--pink)}
-.b-time{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:3px;letter-spacing:.04em}
-.b-label{font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.b-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
-.b-desc strong{color:var(--text);font-weight:400}
-
-/* ── PILLS ── */
-.pill{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap}
-.pill-b{background:var(--blue-bg);color:var(--blue)}
-.pill-g{background:var(--green-bg);color:var(--green)}
-.pill-r{background:var(--red-bg);color:var(--red)}
-.pill-p{background:var(--purple-bg);color:var(--purple)}
-
-/* ── CARDS ── */
-.card{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px}
-.card h3{font-size:14px;font-weight:500;color:var(--text);margin-bottom:.75rem;font-family:var(--mono);letter-spacing:.03em}
-
-/* ── ALERT BOXES ── */
-.alert{border-radius:0;padding:.75rem 1rem;margin-bottom:10px;font-size:13px;line-height:1.7;font-weight:300}
-.alert-b{background:var(--blue-bg);border-left:3px solid var(--blue);color:#93c5fd}
-.alert-g{background:var(--green-bg);border-left:3px solid var(--green);color:#6ee7b7}
-.alert-a{background:var(--amber-bg);border-left:3px solid var(--amber);color:#fcd34d}
-.alert-r{background:var(--red-bg);border-left:3px solid var(--red);color:#fca5a5}
-
-/* ── LISTS ── */
-.rlist{list-style:none;padding:0}
-.rlist li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:.5px solid var(--border);display:flex;gap:8px;line-height:1.6;font-weight:300}
-.rlist li:last-child{border:none}
-.rn{font-family:var(--mono);font-size:11px;color:var(--blue);min-width:18px;margin-top:2px}
+.sub-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem}
+.st{padding:5px 12px;border-radius:20px;border:.5px solid var(--bd);background:transparent;color:var(--mu);font-size:12px;cursor:pointer;transition:all .15s}
+.st:hover{color:var(--tx)}.st.active{background:var(--sf2);color:var(--tx);border-color:var(--hi)}
+.sv{display:none}.sv.active{display:block}
+/* cards */
+.card{background:var(--sf);border:.5px solid var(--bd);border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px}
+/* blocks */
+.blk{border-radius:8px;padding:.85rem 1.1rem;margin-bottom:7px;border:.5px solid var(--bd);background:var(--sf);position:relative;overflow:hidden}
+.blk::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.bl-bl::before{background:var(--bl)}.bl-gn::before{background:var(--gn)}.bl-am::before{background:var(--am)}.bl-pu::before{background:var(--pu)}.bl-mu::before{background:var(--bd)}
+.b-time{font-family:var(--mn);font-size:11px;color:var(--mu);margin-bottom:3px;letter-spacing:.04em}
+.b-label{font-size:14px;font-weight:500;color:var(--tx);margin-bottom:3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.b-desc{font-size:13px;color:var(--mu);line-height:1.7;font-weight:300}
+/* pills */
+.pill{font-family:var(--mn);font-size:10px;padding:2px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap}
+.pill-b{background:var(--bl2);color:var(--bl)}.pill-g{background:var(--gn2);color:var(--gn)}.pill-r{background:var(--rd2);color:var(--rd)}
+.mtag{font-family:var(--mn);font-size:10px;padding:2px 8px;border-radius:3px;background:#1a1a2e;color:var(--pu);border:.5px solid #3d2a5a;cursor:pointer;white-space:nowrap;display:inline-block;margin-top:5px;letter-spacing:.04em}
+.mtag:hover{background:#2a1a4a}
+/* alerts */
+.alert{border-radius:0;padding:.65rem .95rem;margin-bottom:9px;font-size:13px;line-height:1.7;font-weight:300}
+.al-b{background:var(--bl2);border-left:3px solid var(--bl);color:#93c5fd}
+.al-g{background:var(--gn2);border-left:3px solid var(--gn);color:#6ee7b7}
+.al-a{background:var(--am2);border-left:3px solid var(--am);color:#fcd34d}
+.al-r{background:var(--rd2);border-left:3px solid var(--rd);color:#fca5a5}
+.al-p{background:var(--pu2);border-left:3px solid var(--pu);color:#c4b5fd}
+/* lists */
+.rl{list-style:none;padding:0}
+.rl li{font-size:13px;color:var(--mu);padding:5px 0;border-bottom:.5px solid var(--bd);display:flex;gap:8px;line-height:1.6;font-weight:300}
+.rl li:last-child{border:none}
+.rn{font-family:var(--mn);font-size:11px;color:var(--bl);min-width:18px;margin-top:2px}
 .dot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0}
-.dot-b{background:var(--blue)}.dot-g{background:var(--green)}.dot-a{background:var(--amber)}.dot-r{background:var(--red)}.dot-p{background:var(--purple)}
-
-/* ── MONTH CARDS ── */
-.month-card{border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px;border:.5px solid var(--border);background:var(--surface)}
-.month-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.mbadge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.mb1{background:var(--blue-bg);color:var(--blue)}
-.mb2{background:var(--green-bg);color:var(--green)}
-.mb3{background:var(--amber-bg);color:var(--amber)}
-.mb4{background:var(--red-bg);color:var(--red)}
-.mb5{background:var(--purple-bg);color:var(--purple)}
-.month-title{font-size:15px;font-weight:500;color:var(--text)}
-.month-sub{font-size:12px;color:var(--muted)}
-
-/* ── STATS ROW ── */
-.stats{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
-.stat{background:var(--surface2);border-radius:8px;padding:.85rem 1rem;flex:1;min-width:90px;text-align:center}
-.stat-num{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--green);display:block}
-.stat-label{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:.04em}
-
-/* ── EVENING GRID ── */
-.eve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;margin-top:8px}
-.eve-day{background:var(--surface2);border:.5px solid var(--border);border-radius:6px;padding:8px 10px}
-.eve-name{font-family:var(--mono);color:var(--amber);font-size:10px;letter-spacing:.07em;margin-bottom:3px}
-.eve-task{color:var(--text);font-size:12px;line-height:1.4;font-weight:300}
-
-/* ── WEEK GRID ── */
-.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
-.week-pill{background:var(--surface2);border:.5px solid var(--border);border-radius:6px;padding:7px 10px}
-.wp-day{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:.06em;margin-bottom:3px}
-.wp-task{font-size:12px;color:var(--text);line-height:1.4;font-weight:300}
-
-/* ── TEF BLOCK ── */
-.tef-b{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:8px}
-.tef-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
-.tef-score{font-size:11px;color:var(--blue);background:var(--blue-bg);padding:2px 8px;border-radius:20px;font-family:var(--mono)}
-
-/* ── NON-NEG ── */
-.non-neg{background:var(--surface2);border:.5px solid #1a3d2e;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem}
-.nn-title{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.08em;margin-bottom:.75rem}
-
-/* ── FOOTER ── */
-footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--hint);margin-top:3rem;letter-spacing:.05em}
-
-h2{font-size:17px;font-weight:500;color:var(--text);margin-bottom:1rem}
+.dot-b{background:var(--bl)}.dot-g{background:var(--gn)}.dot-a{background:var(--am)}.dot-r{background:var(--rd)}.dot-p{background:var(--pu)}
+/* month cards */
+.mc{border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px;border:.5px solid var(--bd);background:var(--sf)}
+.mh{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.mb{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.mb1{background:var(--bl2);color:var(--bl)}.mb2{background:var(--gn2);color:var(--gn)}.mb3{background:var(--am2);color:var(--am)}.mb4{background:var(--rd2);color:var(--rd)}.mb5{background:var(--pu2);color:var(--pu)}
+/* tef */
+.tb{background:var(--sf);border:.5px solid var(--bd);border-radius:10px;padding:1rem 1.25rem;margin-bottom:8px}
+.tt{font-size:14px;font-weight:500;color:var(--tx);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.ts{font-size:11px;color:var(--bl);background:var(--bl2);padding:2px 8px;border-radius:20px;font-family:var(--mn)}
+/* day picker */
+.day-picker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem}
+.dp{font-family:var(--mn);font-size:11px;padding:8px 12px;border-radius:6px;border:1px solid var(--bd);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.05em;transition:all .15s;flex:1;min-width:55px;text-align:center}
+.dp:hover{border-color:var(--bl);color:var(--bl)}
+.dp.active{background:var(--bl);color:#000;border-color:var(--bl);font-weight:500}
+.dp.wk{border-color:#1a3d2e;color:var(--gn)}.dp.wk.active{background:var(--gn);border-color:var(--gn);color:#000}
+/* hw banner */
+.hw-ban{background:var(--rd2);border:.5px solid #3d1515;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.9rem}
+.hw-bt{font-family:var(--mn);font-size:10px;color:var(--rd);letter-spacing:.08em;margin-bottom:.55rem}
+.hw-it{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:.5px solid #2a1010;cursor:pointer;user-select:none}
+.hw-it:last-child{border:none}
+.hw-ck{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--rd);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.hw-ck.done{background:var(--gn);border-color:var(--gn)}.hw-ck.done::after{content:'✓';color:#000;font-size:11px;font-weight:700}
+.hw-tx{font-size:13px;color:var(--tx);font-weight:300;flex:1}.hw-tx.done{text-decoration:line-through;color:var(--mu)}
+/* todo */
+.sec-t{font-family:var(--mn);font-size:10px;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.55rem;padding-bottom:.3rem;border-bottom:.5px solid var(--bd)}
+.ti{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;margin-bottom:6px;border:.5px solid var(--bd);background:var(--sf);cursor:pointer;transition:all .15s;user-select:none;position:relative;overflow:hidden}
+.ti::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.ti.ac-blue::before{background:var(--bl)}.ti.ac-green::before{background:var(--gn)}.ti.ac-amber::before{background:var(--am)}.ti.ac-purple::before{background:var(--pu)}.ti.ac-red::before{background:var(--rd)}.ti.ac-muted::before{background:var(--bd)}
+.ti:hover{border-color:var(--hi)}.ti.done-item{opacity:.4}
+.tc{width:20px;height:20px;border-radius:5px;border:1.5px solid var(--bd);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.tc.done{background:var(--gn);border-color:var(--gn)}.tc.done::after{content:'✓';color:#000;font-size:11px;font-weight:700}
+.tl .t-time{font-family:var(--mn);font-size:11px;color:var(--mu);margin-bottom:2px;letter-spacing:.04em}
+.tl .t-label{font-size:13px;font-weight:500;color:var(--tx);margin-bottom:2px}
+.tl .t-detail{font-size:12px;color:var(--mu);line-height:1.6;font-weight:300}
+.todo-sec{margin-bottom:.9rem}
+/* progress bar */
+.prog-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;font-size:13px}
+.prog-bar{height:4px;background:var(--sf2);border-radius:2px;margin-bottom:.75rem}
+.prog-fill{height:4px;background:var(--gn);border-radius:2px;transition:width .3s}
+.reset-btn{font-family:var(--mn);font-size:10px;padding:3px 10px;border-radius:4px;border:.5px solid var(--bd);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.05em;margin-bottom:1rem}
+.reset-btn:hover{color:var(--tx)}
+/* streak bar */
+.streak-bar{background:var(--sf2);border:.5px solid var(--bd);border-radius:8px;padding:.7rem 1rem;margin-bottom:.9rem;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.streak-info{display:flex;align-items:center;gap:10px}
+.streak-num{font-family:var(--mn);font-size:22px;font-weight:500;color:var(--am)}
+.streak-label{font-size:12px;color:var(--mu);font-weight:300;line-height:1.4}
+.focus-btn{font-family:var(--mn);font-size:10px;padding:5px 12px;border-radius:4px;border:.5px solid var(--pu);background:transparent;color:var(--pu);cursor:pointer;letter-spacing:.05em;white-space:nowrap}
+.focus-btn:hover{background:var(--pu2)}
+/* focus mode */
+body.focus-mode .main-tabs{display:none}
+body.focus-mode .onboard-wrap{display:none}
+body.focus-mode .non-focus{display:none}
+body.focus-mode .page:not(#today){display:none!important}
+body.focus-mode #today{display:block!important}
+/* onboarding */
+.onboard-wrap{margin-bottom:.9rem}
+.onboard-wrap details summary{font-family:var(--mn);font-size:11px;color:var(--gn);letter-spacing:.08em;cursor:pointer;padding:.6rem .9rem;background:var(--gn2);border-radius:6px;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.onboard-wrap details summary::after{content:'▼';font-size:9px;transition:transform .2s}
+.onboard-wrap details[open] summary::after{transform:rotate(180deg)}
+.onboard-body{background:var(--sf);border:.5px solid var(--bd);border-top:none;border-radius:0 0 8px 8px;padding:1rem 1.25rem}
+.ob-step{display:flex;gap:10px;padding:.6rem 0;border-bottom:.5px solid var(--bd)}
+.ob-step:last-child{border:none}
+.ob-num{font-family:var(--mn);font-size:13px;font-weight:500;color:var(--am);min-width:24px}
+.ob-text{font-size:13px;color:var(--mu);line-height:1.6;font-weight:300}
+.ob-text strong{color:var(--tx);font-weight:400}
+/* flashcard */
+.fc-filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.fc-filter{font-family:var(--mn);font-size:10px;padding:4px 10px;border-radius:20px;border:.5px solid var(--bd);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.04em}
+.fc-filter.active{background:var(--bl2);color:var(--bl);border-color:var(--bl)}
+.fc-counter{font-family:var(--mn);font-size:11px;color:var(--mu);text-align:center;margin-bottom:.75rem;letter-spacing:.05em}
+.fc-card{width:100%;min-height:220px;cursor:pointer;margin-bottom:.9rem;perspective:1000px}
+.fc-inner{width:100%;min-height:220px;position:relative;transition:transform .4s;transform-style:preserve-3d}
+.fc-inner.flipped{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;width:100%;min-height:220px;backface-visibility:hidden;border-radius:10px;border:.5px solid var(--bd);padding:1.25rem;display:flex;flex-direction:column;justify-content:center}
+.fc-front{background:var(--sf)}
+.fc-back{background:var(--sf2);transform:rotateY(180deg)}
+.fc-topic{font-family:var(--mn);font-size:10px;color:var(--mu);letter-spacing:.08em;margin-bottom:.75rem}
+.fc-sentence{font-size:17px;line-height:1.7;color:var(--tx);font-weight:300;margin-bottom:.5rem}
+.fc-kw{color:var(--am);font-weight:500;background:var(--am2);padding:1px 4px;border-radius:3px}
+.fc-tap{font-family:var(--mn);font-size:10px;color:var(--hi);letter-spacing:.06em;margin-top:.75rem}
+.fc-meaning{font-size:14px;color:var(--tx);margin-bottom:.6rem;font-weight:400}
+.fc-pron{font-size:13px;color:var(--mu);margin-bottom:.5rem}
+.fc-var{font-size:12px;color:var(--mu);font-style:italic;margin-bottom:.5rem}
+.fc-gender{margin-bottom:.4rem}
+.gender-tag{font-family:var(--mn);font-size:11px;padding:2px 8px;border-radius:3px}
+.gender-tag.masc{background:var(--bl2);color:var(--bl)}
+.gender-tag.fem{background:#2a0d1e;color:var(--pk)}
+.diff-btns{display:flex;gap:8px;margin-bottom:1rem}
+.diff-btns button{flex:1;padding:10px;border-radius:8px;border:.5px solid var(--bd);background:var(--sf);font-family:var(--mn);font-size:12px;cursor:pointer;letter-spacing:.05em;transition:all .15s}
+.diff-hard{color:var(--rd);border-color:#3d1515!important}.diff-hard:hover{background:var(--rd2)}
+.diff-ok{color:var(--am);border-color:#3d2a00!important}.diff-ok:hover{background:var(--am2)}
+.diff-easy{color:var(--gn);border-color:#1a3d2e!important}.diff-easy:hover{background:var(--gn2)}
+.fc-empty{text-align:center;padding:3rem 1rem;font-size:14px;color:var(--mu);line-height:1.8}
+.fc-actions{display:flex;gap:8px;margin-bottom:.9rem}
+.fc-action-btn{font-family:var(--mn);font-size:11px;padding:6px 14px;border-radius:6px;border:.5px solid var(--bd);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.05em}
+.fc-action-btn:hover{color:var(--tx);border-color:var(--hi)}
+/* gender drill */
+.gd-score{font-family:var(--mn);font-size:11px;color:var(--mu);text-align:center;margin-bottom:.75rem;letter-spacing:.05em}
+.gd-eng{font-size:13px;color:var(--mu);text-align:center;margin-bottom:.3rem;font-weight:300}
+.gd-word{font-size:36px;font-weight:500;color:var(--tx);text-align:center;margin-bottom:1.5rem;letter-spacing:.02em}
+.gd-choices{display:flex;gap:10px;justify-content:center;margin-bottom:1rem}
+.gd-btn{font-size:18px;font-weight:500;padding:12px 28px;border-radius:8px;border:.5px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer;transition:all .15s;font-family:var(--sn)}
+.gd-btn:hover:not(:disabled){border-color:var(--bl);color:var(--bl)}
+.gd-btn:disabled{cursor:default}
+.gd-correct{text-align:center;padding:.75rem;border-radius:8px;background:var(--gn2);color:var(--gn);font-size:14px;font-weight:400;margin-top:.5rem;line-height:1.6}
+.gd-wrong{text-align:center;padding:.75rem;border-radius:8px;background:var(--rd2);color:var(--rd);font-size:14px;font-weight:400;margin-top:.5rem;line-height:1.6}
+.gd-done{text-align:center;padding:2rem 1rem;font-size:15px;color:var(--tx);font-weight:500;line-height:1.8}
+.gd-retry{display:block;margin:.75rem auto 0;font-family:var(--mn);font-size:11px;padding:8px 20px;border-radius:6px;border:.5px solid var(--bl);background:transparent;color:var(--bl);cursor:pointer;letter-spacing:.05em}
+/* grammar drill */
+.gram-prompt{font-size:16px;color:var(--tx);font-weight:400;text-align:center;margin-bottom:1.25rem;line-height:1.7;padding:.75rem}
+.gram-input{width:100%;padding:.75rem 1rem;border-radius:8px;border:.5px solid var(--bd);background:var(--sf2);color:var(--tx);font-family:var(--sn);font-size:15px;margin-bottom:.6rem;outline:none}
+.gram-input:focus{border-color:var(--bl)}
+.gram-submit{width:100%;padding:.75rem;border-radius:8px;border:.5px solid var(--bd);background:var(--bl2);color:var(--bl);font-family:var(--mn);font-size:12px;cursor:pointer;letter-spacing:.05em;margin-bottom:.6rem}
+.gram-submit:hover{background:var(--bl);color:#000}
+.gd-reveal{text-align:center;padding:.75rem;border-radius:8px;background:var(--am2);color:var(--am);font-size:14px;font-weight:400;margin-top:.5rem;line-height:1.6}
+/* progress */
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.prog-stat{background:var(--sf2);border-radius:8px;padding:.85rem 1rem;text-align:center}
+.prog-num{display:block;font-family:var(--mn);font-size:22px;font-weight:500;margin-bottom:3px}
+.prog-label{font-size:11px;color:var(--mu);letter-spacing:.04em}
+.top-missed{background:var(--sf);border:.5px solid var(--rd2);border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px}
+.top-missed h3{color:var(--rd);margin-bottom:.6rem}
+/* modal */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:flex-end;justify-content:center}
+.modal-ov.open{display:flex}
+.modal-box{background:var(--sf);border:.5px solid var(--bd);border-radius:16px 16px 0 0;width:100%;max-width:820px;max-height:88vh;overflow-y:auto;padding:1.5rem}
+.modal-handle{width:36px;height:4px;background:var(--bd);border-radius:2px;margin:0 auto 1.2rem}
+.modal-title{font-size:17px;font-weight:500;color:var(--tx);margin-bottom:.25rem}
+.modal-sub{font-size:12px;color:var(--mu);margin-bottom:1.1rem;font-weight:300}
+.msec{margin-bottom:.9rem}
+.msec-t{font-family:var(--mn);font-size:10px;color:var(--pu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem}
+.msec p{font-size:13px;color:var(--mu);line-height:1.7;margin-bottom:.45rem}
+.msec .ex{background:var(--sf2);border-left:3px solid var(--pu);padding:.55rem .85rem;font-size:13px;color:var(--tx);line-height:1.6;margin-bottom:.4rem}
+.modal-close{width:100%;padding:.7rem;border-radius:8px;border:.5px solid var(--bd);background:transparent;color:var(--mu);font-family:var(--mn);font-size:11px;cursor:pointer;margin-top:.4rem;letter-spacing:.05em}
+.modal-close:hover{color:var(--tx)}
+/* week/schedule grids */
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:5px;margin-top:7px}
+.ev-d{background:var(--sf2);border:.5px solid var(--bd);border-radius:6px;padding:6px 9px}
+.ev-n{font-family:var(--mn);color:var(--am);font-size:10px;letter-spacing:.07em;margin-bottom:2px}
+.ev-t{color:var(--tx);font-size:12px;line-height:1.4;font-weight:300}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:7px}
+.wp{background:var(--sf2);border:.5px solid var(--bd);border-radius:6px;padding:6px 9px}
+.wd{font-family:var(--mn);font-size:10px;color:var(--bl);letter-spacing:.06em;margin-bottom:2px}
+.wt{font-size:12px;color:var(--tx);line-height:1.4;font-weight:300}
+.nn{background:var(--sf2);border:.5px solid #1a3d2e;border-radius:8px;padding:1rem 1.25rem;margin-bottom:.9rem}
+.nn-t{font-family:var(--mn);font-size:11px;color:var(--gn);letter-spacing:.08em;margin-bottom:.65rem}
+footer{text-align:center;font-family:var(--mn);font-size:11px;color:var(--hi);margin-top:2.5rem;letter-spacing:.05em}
 </style>
 </head>
 <body>
 
 <div class="top-header">
   <div class="tag">CLB 7 Target · September 2025</div>
-  <h1>French Master Plan</h1>
-  <p>Francolang · Thunder Bay · 5 months · Built for TEF Canada</p>
+  <h1>French Bootcamp</h1>
+  <p>Francolang · Thunder Bay · 5 months · Top 1% system</p>
 </div>
 
 <div class="main-tabs">
-  <button class="main-tab active" onclick="mainShow('schedule',this)">Schedule</button>
-  <button class="main-tab g" onclick="mainShow('curriculum',this)">Curriculum</button>
-  <button class="main-tab" onclick="mainShow('tef',this)">TEF Strategy</button>
-  <button class="main-tab" onclick="mainShow('tcf',this)">TCF Strategy</button>
-  <button class="main-tab p" onclick="mainShow('shield',this)">Focus Shield</button>
+  <button class="mt active" onclick="mShow('today',this)">Today</button>
+  <button class="mt g" onclick="mShow('flashcards',this)">Flashcards</button>
+  <button class="mt a" onclick="mShow('drills',this)">Drills</button>
+  <button class="mt p" onclick="mShow('progress',this)">Progress</button>
+  <button class="mt" onclick="mShow('schedule',this)">Schedule</button>
+  <button class="mt g" onclick="mShow('curriculum',this)">Curriculum</button>
+  <button class="mt p" onclick="mShow('methods',this)">Methods</button>
+  <button class="mt" onclick="mShow('tef',this)">TEF</button>
+  <button class="mt" onclick="mShow('tcf',this)">TCF</button>
+  <button class="mt r" onclick="mShow('shield',this)">Focus Shield</button>
 </div>
 
 <div class="content">
 
-<!-- ════════ SCHEDULE ════════ -->
-<div id="schedule" class="page active">
-  <div class="sub-tabs">
-    <button class="sub-tab active" onclick="subShow('weekday',this,'schedule')">Mon–Fri</button>
-    <button class="sub-tab" onclick="subShow('sat',this,'schedule')">Saturday</button>
-    <button class="sub-tab" onclick="subShow('sun',this,'schedule')">Sunday</button>
-    <button class="sub-tab" onclick="subShow('rules',this,'schedule')">Rules</button>
-  </div>
-
-  <!-- WEEKDAY -->
-  <div id="weekday" class="sub-view active">
-    <div class="stats">
-      <div class="stat"><span class="stat-num">5h</span><span class="stat-label">morning block</span></div>
-      <div class="stat"><span class="stat-num">40m</span><span class="stat-label">evening block</span></div>
-      <div class="stat"><span class="stat-num">~6h</span><span class="stat-label">passive at work</span></div>
-    </div>
-
-    <div class="block bl-muted">
-      <div class="b-time">9:00 PM — night before</div>
-      <div class="b-label">Night prep ritual</div>
-      <div class="b-desc">Write tomorrow's first task on paper. Open laptop to that file → sleep it. <strong>Phone goes to kitchen. Alarm clock set for 4:00 AM.</strong></div>
-    </div>
-    <div class="block bl-blue">
-      <div class="b-time">4:00 AM</div>
-      <div class="b-label">Wake <span class="pill pill-r">no phone</span></div>
-      <div class="b-desc">Alarm clock only. Water. Sit down. Laptop already open. Zero decisions needed.</div>
-    </div>
-    <div class="block bl-blue">
-      <div class="b-time">4:15 – 5:15 AM · Block 1</div>
-      <div class="b-label">Homework / active recall <span class="pill pill-r">hardest first</span></div>
-      <div class="b-desc">If homework due → finish and submit. If not → cover notes, write from memory, uncover, check gaps. <strong>Your most important hour.</strong></div>
-    </div>
-    <div class="block bl-blue">
-      <div class="b-time">5:15 – 6:00 AM · Block 2</div>
-      <div class="b-label">Class review — slides + recording chunk</div>
-      <div class="b-desc">Cover slide → recall from memory → uncover → check. Watch only the 30-min recording chunk for that day. Never re-read passively.</div>
-    </div>
-    <div class="block bl-amber">
-      <div class="b-time">6:00 – 6:45 AM · Block 3</div>
-      <div class="b-label">RFI listening <span class="pill pill-g">every day</span></div>
-      <div class="b-desc">francaisfacile.rfi.fr → Journal en français facile → one episode. Write 3 things you caught. Trains TEF listening directly. <strong>Non-negotiable.</strong></div>
-    </div>
-    <div class="block bl-blue">
-      <div class="b-time">6:45 – 7:30 AM · Block 4</div>
-      <div class="b-label">Flashcards / Anki</div>
-      <div class="b-desc">Review deck + add 5 new words from latest class. Target 2,000 active words by Month 3. Spaced repetition only works if you do it daily.</div>
-    </div>
-    <div class="block bl-green">
-      <div class="b-time">7:30 – 8:15 AM · Block 5</div>
-      <div class="b-label">Speaking output — 5 sentences out loud</div>
-      <div class="b-desc">Your restaurant, your morning, your day — anything in French. Record on voice memo. Wrong grammar is fine. Month 3+: give opinions, argue a point.</div>
-    </div>
-    <div class="block bl-muted">
-      <div class="b-time">8:15 – 9:00 AM</div>
-      <div class="b-label">Get ready, eat, commute</div>
-      <div class="b-desc">Main session done. You just did more than 99% of French learners do in a week.</div>
-    </div>
-    <div class="block bl-green">
-      <div class="b-time">11:00 AM – 4:30 PM · at work</div>
-      <div class="b-label">Passive French <span class="pill pill-g">zero extra time</span></div>
-      <div class="b-desc">French podcast in one ear during prep and cleaning. Recommended: Français Authentique (month 1-2), InnerFrench, RFI Savoirs (month 3+). Your ear trains while your hands work.</div>
-    </div>
-    <div class="block bl-muted">
-      <div class="b-time">4:30 – 4:50 PM</div>
-      <div class="b-label">Home — decompress first</div>
-      <div class="b-desc">Eat. Rest 20 minutes. Don't study yet. Real rest makes the evening session sharper.</div>
-    </div>
-    <div class="block bl-amber">
-      <div class="b-time">4:50 – 5:30 PM · Evening</div>
-      <div class="b-label">One task only</div>
-      <div class="b-desc">
-        <div class="eve-grid">
-          <div class="eve-day"><div class="eve-name">MON</div><div class="eve-task">Finish / review homework → submit</div></div>
-          <div class="eve-day"><div class="eve-name">TUE</div><div class="eve-task">Write paragraph in French, self-correct</div></div>
-          <div class="eve-day"><div class="eve-name">WED</div><div class="eve-task">Pronunciation — speak out loud, record</div></div>
-          <div class="eve-day"><div class="eve-name">THU</div><div class="eve-task">Anki — new vocabulary only</div></div>
-          <div class="eve-day"><div class="eve-name">FRI</div><div class="eve-task">French YouTube — French subtitles only</div></div>
-        </div>
+<!-- TODAY -->
+<div id="today" class="page active">
+  <!-- Onboarding -->
+  <div class="onboard-wrap non-focus">
+    <details>
+      <summary>How to use this app — top 1% method (tap to expand)</summary>
+      <div class="onboard-body">
+        <div class="ob-step"><span class="ob-num">4am</span><span class="ob-text"><strong>Open Today tab.</strong> Your todos are already loaded. Homework always first — tick it off before moving to anything else.</span></div>
+        <div class="ob-step"><span class="ob-num">5am</span><span class="ob-text"><strong>Review class notes.</strong> Cover the slide. Write from memory. Uncover and check. Then do 2 minutes of <strong>teach-it-back</strong> — explain the grammar out loud like you're teaching a beginner.</span></div>
+        <div class="ob-step"><span class="ob-num">6am</span><span class="ob-text"><strong>RFI listening</strong> at francaisfacile.rfi.fr. One episode. Write 3 things you caught. This trains your TEF listening score directly — do it every single day.</span></div>
+        <div class="ob-step"><span class="ob-num">6:45am</span><span class="ob-text"><strong>Go to Flashcards tab.</strong> Do all due cards. Rate each: Hard / OK / Easy. The app automatically schedules your next review. <strong>Sentence mining:</strong> pick 2 sentences from today's RFI and add them as new cards.</span></div>
+        <div class="ob-step"><span class="ob-num">7:30am</span><span class="ob-text"><strong>Shadowing 5 min:</strong> play RFI → speak at the same time as the speaker, copying rhythm and sound. Then 5 min free speaking — describe your day, your restaurant, anything. Record on voice memo.</span></div>
+        <div class="ob-step"><span class="ob-num">At work</span><span class="ob-text">French podcast in one earphone the whole shift. No effort needed — your ear trains automatically.</span></div>
+        <div class="ob-step"><span class="ob-num">Evening</span><span class="ob-text">One focused task — see today's evening todo. Then do <strong>gender drills</strong> in the Drills tab: 5 quick nouns, 2 minutes, massively important for TEF writing.</span></div>
+        <div class="ob-step"><span class="ob-num">Night</span><span class="ob-text">Write tomorrow's first task on paper. Open laptop to that file. Phone to kitchen. Alarm clock set. 5 minutes — makes everything work.</span></div>
       </div>
-    </div>
+    </details>
   </div>
 
-  <!-- SATURDAY -->
-  <div id="sat" class="sub-view">
-    <div class="block bl-blue">
-      <div class="b-time">4:00 – 6:00 AM</div>
-      <div class="b-label">Pre-class review</div>
-      <div class="b-desc">Active recall of previous class. Cover notes, write from memory. <strong>Walk in warmed up, not blank.</strong></div>
+  <!-- Streak + Focus -->
+  <div class="streak-bar">
+    <div class="streak-info">
+      <span class="streak-num" id="streak-num">0</span>
+      <span class="streak-label">day streak<br><span style="font-size:10px;font-family:var(--mn)" id="streak-sub">study today to start</span></span>
     </div>
-    <div class="block bl-amber">
-      <div class="b-time">6:00 – 6:45 AM</div>
-      <div class="b-label">RFI + Anki — light session</div>
-      <div class="b-desc">One episode. Quick flashcard review. Save energy for class.</div>
-    </div>
-    <div class="block bl-muted">
-      <div class="b-time">6:45 AM → class time</div>
-      <div class="b-label">Get ready, eat well</div>
-      <div class="b-desc">Brain needs fuel for 2 hours of active learning.</div>
-    </div>
-    <div class="block bl-purple">
-      <div class="b-time">During class</div>
-      <div class="b-label">Active class mode <span class="pill pill-g">write every correction</span></div>
-      <div class="b-desc">Write every teacher correction in a different colour — they're more valuable than new notes. Speak up. Participate. Class speaking = free TEF practice.</div>
-    </div>
-    <div class="block bl-amber">
-      <div class="b-time">After class — evening (30 min max)</div>
-      <div class="b-label">Post-class notes</div>
-      <div class="b-desc">Expand notes from memory while fresh. Add your own examples. Then rest. Don't burn out on class day.</div>
-    </div>
+    <button class="focus-btn" id="focus-btn" onclick="toggleFocus()">Focus mode</button>
   </div>
 
-  <!-- SUNDAY -->
-  <div id="sun" class="sub-view">
-    <div class="block bl-blue">
-      <div class="b-time">4:00 – 6:00 AM</div>
-      <div class="b-label">Pre-class — review Saturday's class</div>
-      <div class="b-desc"><strong>Walk into Sunday's class with Saturday already locked in.</strong> Active recall. Anki. RFI.</div>
-    </div>
-    <div class="block bl-purple">
-      <div class="b-time">During class</div>
-      <div class="b-label">Active class mode — same as Saturday</div>
-      <div class="b-desc">Write corrections. Ask questions. Speak up. Your voice in class = free speaking practice you already paid for.</div>
-    </div>
-    <div class="block bl-green">
-      <div class="b-time">After class — Sunday evening (1 hour)</div>
-      <div class="b-label">Weekly review</div>
-      <div class="b-desc">What did I master this week? What is still shaky? <strong>Write 3 weak spots for next week.</strong> This is how you improve week over week.</div>
-    </div>
-    <div class="block bl-muted">
-      <div class="b-time">Sunday night</div>
-      <div class="b-label">Rest properly — early sleep</div>
-      <div class="b-desc">Brain consolidates this week's learning while you sleep. Staying up late destroys Monday's 4 AM session.</div>
-    </div>
+  <!-- Day picker -->
+  <div class="day-picker">
+    <button class="dp" onclick="pickDay('mon',this)">Mon</button>
+    <button class="dp" onclick="pickDay('tue',this)">Tue</button>
+    <button class="dp" onclick="pickDay('wed',this)">Wed</button>
+    <button class="dp" onclick="pickDay('thu',this)">Thu</button>
+    <button class="dp" onclick="pickDay('fri',this)">Fri</button>
+    <button class="dp wk" onclick="pickDay('sat',this)">Sat</button>
+    <button class="dp wk" onclick="pickDay('sun',this)">Sun</button>
+  </div>
+  <div id="planner"></div>
+</div>
+
+<!-- FLASHCARDS -->
+<div id="flashcards" class="page">
+  <h2>Flashcards — sentence mining system</h2>
+  <div class="al-b alert" style="margin-bottom:.9rem">Full sentences only — not single words. Rate each card: Hard=review tomorrow, OK=3 days, Easy=7 days. The app tracks which cards you struggle with most.</div>
+  <div class="fc-filter-row" id="fc-filters">
+    <button class="fc-filter active" onclick="setFcFilter('all',this)">All due</button>
+    <button class="fc-filter" onclick="setFcFilter('new',this)">New only</button>
+    <button class="fc-filter" onclick="setFcFilter('hard',this)">Hard only</button>
+    <button class="fc-filter" onclick="setFcFilter('c1',this)">Class 1</button>
+    <button class="fc-filter" onclick="setFcFilter('gender',this)">Gender</button>
+  </div>
+  <div class="fc-actions">
+    <button class="fc-action-btn" onclick="initFc()">Shuffle & start</button>
+    <button class="fc-action-btn" onclick="openModal('sm')">What is sentence mining?</button>
+  </div>
+  <div id="fc-out"></div>
+</div>
+
+<!-- DRILLS -->
+<div id="drills" class="page">
+  <div class="sub-tabs">
+    <button class="st active" onclick="sShow('gd-view',this,'drills')">Gender drills</button>
+    <button class="st" onclick="sShow('gram-view',this,'drills')">Grammar drills</button>
   </div>
 
-  <!-- RULES -->
-  <div id="rules" class="sub-view">
-    <div class="non-neg">
-      <div class="nn-title">5 non-negotiables — break these and the system collapses</div>
-      <ul class="rlist">
-        <li><span class="rn">01</span>Alarm clock only. Phone charges in the kitchen every single night.</li>
-        <li><span class="rn">02</span>Homework always first — before RFI, before flashcards, before anything.</li>
-        <li><span class="rn">03</span>RFI every morning. Even 10 minutes. Miss this and your listening score suffers.</li>
-        <li><span class="rn">04</span>Night prep every night. 5 minutes. Write task. Open laptop. Phone to kitchen.</li>
-        <li><span class="rn">05</span>Evening block = ONE task only. One thing, done well.</li>
-      </ul>
+  <div id="gd-view" class="sv active">
+    <h2>Gender mastery — le / la / les</h2>
+    <div class="al-p alert">Gender is tested in TEF writing and speaking. Wrong article = lost marks. 5 nouns per day, every day. In 5 months you will know them all.</div>
+    <div class="fc-actions">
+      <button class="fc-action-btn" onclick="initGd()">Start drills</button>
+      <button class="fc-action-btn" onclick="openModal('gm')">Why gender matters</button>
     </div>
-    <div class="card">
-      <h3>How to use the 5 weekdays on each class</h3>
-      <ul class="rlist">
-        <li><span class="rn">D1</span>Right after class → rewrite notes from memory while still fresh</li>
-        <li><span class="rn">D2</span>Do the homework from that class</li>
-        <li><span class="rn">D3</span>Active recall — flashcards, speak vocab out loud</li>
-        <li><span class="rn">D4</span>Use it — write and speak with that grammar</li>
-        <li><span class="rn">D5</span>Weak spots only before next class — you've touched it 5 times, it's yours</li>
-      </ul>
+    <div id="gd-out"></div>
+  </div>
+
+  <div id="gram-view" class="sv">
+    <h2>Grammar drills — fill in the blank</h2>
+    <div class="al-b alert">Type your answer and press Enter. These target the most common TEF grammar points.</div>
+    <div class="fc-actions">
+      <button class="fc-action-btn" onclick="initGram()">Start drills</button>
     </div>
-    <div class="card">
-      <h3>When you miss a morning session</h3>
-      <ul class="rlist">
-        <li><span class="rn">→</span>Do not double up the next day. It never works and creates guilt spirals.</li>
-        <li><span class="rn">→</span>Just do the evening block — 40 focused minutes still moves you forward.</li>
-        <li><span class="rn">→</span>Reset next morning like nothing happened. No guilt. Just restart.</li>
-      </ul>
-    </div>
+    <div id="gram-out"></div>
   </div>
 </div>
 
-<!-- ════════ CURRICULUM ════════ -->
+<!-- PROGRESS -->
+<div id="progress" class="page">
+  <h2>Your progress</h2>
+  <div id="prog-out"></div>
+  <div class="card non-focus" style="margin-top:.5rem">
+    <h3>How to read this</h3>
+    <ul class="rl">
+      <li><span class="rn">→</span>Streak: consecutive days you studied (todo or flashcards)</li>
+      <li><span class="rn">→</span>Mastered: flashcards reviewed Easy 3+ times (interval ≥ 7 days)</li>
+      <li><span class="rn">→</span>Due today: cards the spaced repetition system wants you to review</li>
+      <li><span class="rn">→</span>Most missed: cards you rated Hard most often — prioritise these</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div id="schedule" class="page">
+  <div class="sub-tabs">
+    <button class="st active" onclick="sShow('sc-wk',this,'schedule')">Mon–Fri</button>
+    <button class="st" onclick="sShow('sc-sa',this,'schedule')">Saturday</button>
+    <button class="st" onclick="sShow('sc-su',this,'schedule')">Sunday</button>
+    <button class="st" onclick="sShow('sc-ru',this,'schedule')">Rules</button>
+  </div>
+  <div id="sc-wk" class="sv active">
+    <div class="blk bl-mu"><div class="b-time">9:00 PM — night before</div><div class="b-label">Night prep</div><div class="b-desc">Write tomorrow's first task on paper. Open laptop to that file, sleep it. <strong>Phone → kitchen. Alarm clock set for 4:00 AM.</strong></div></div>
+    <div class="blk bl-bl"><div class="b-time">4:00 AM</div><div class="b-label">Wake <span class="pill pill-r">no phone</span></div><div class="b-desc">Alarm clock only. Water. Sit down. Laptop already open. Zero decisions needed.</div></div>
+    <div class="blk bl-bl"><div class="b-time">4:15–5:15 AM</div><div class="b-label">Block 1 — Homework / active recall</div><div class="b-desc">Homework due → finish and submit. No homework → cover notes, recall from memory, check gaps. <strong>Most important hour of the day.</strong></div></div>
+    <div class="blk bl-bl"><div class="b-time">5:15–6:00 AM</div><div class="b-label">Block 2 — Class notes + teach-it-back</div><div class="b-desc">Cover slide → recall → uncover → check. Then 2 min teach-it-back: explain the grammar out loud in simple English. Stuck = exactly what to re-read.</div></div>
+    <div class="blk bl-am"><div class="b-time">6:00–6:45 AM</div><div class="b-label">Block 3 — RFI listening <span class="pill pill-g">every day</span></div><div class="b-desc">francaisfacile.rfi.fr → Journal en français facile → write 3 things caught. Non-negotiable.</div></div>
+    <div class="blk bl-bl"><div class="b-time">6:45–7:30 AM</div><div class="b-label">Block 4 — Flashcards + sentence mining</div><div class="b-desc">Open Flashcards tab → review all due cards. Mine 2 sentences from today's RFI or class slide. Add to deck.</div></div>
+    <div class="blk bl-gn"><div class="b-time">7:30–8:15 AM</div><div class="b-label">Block 5 — Shadowing 5 min + free speaking 5 min</div><div class="b-desc">Shadowing: RFI → speak simultaneously, copy rhythm. 3x per sentence. Then 5 free sentences about your day.</div></div>
+    <div class="blk bl-mu"><div class="b-time">8:15–9:00 AM</div><div class="b-label">Get ready, eat, commute</div><div class="b-desc">Morning session done. You just did more than most people do in a week.</div></div>
+    <div class="blk bl-gn"><div class="b-time">At work</div><div class="b-label">Passive French <span class="pill pill-g">zero extra time</span></div><div class="b-desc">French podcast one ear all shift. Français Authentique (M1-2) → RFI Savoirs (M3+).</div></div>
+    <div class="blk bl-am"><div class="b-time">4:50–5:30 PM</div><div class="b-label">Evening — one task only</div><div class="b-desc"><div class="ev-grid"><div class="ev-d"><div class="ev-n">MON</div><div class="ev-t">Homework → submit</div></div><div class="ev-d"><div class="ev-n">TUE</div><div class="ev-t">Write paragraph in French</div></div><div class="ev-d"><div class="ev-n">WED</div><div class="ev-t">Pronunciation + record</div></div><div class="ev-d"><div class="ev-n">THU</div><div class="ev-t">Gender drills (Drills tab)</div></div><div class="ev-d"><div class="ev-n">FRI</div><div class="ev-t">French YouTube (FR subs)</div></div></div></div></div>
+  </div>
+  <div id="sc-sa" class="sv">
+    <div class="blk bl-bl"><div class="b-time">4:00–6:00 AM</div><div class="b-label">Pre-class review + teach-it-back</div><div class="b-desc">Active recall of last class. Then explain main grammar point out loud — confirm you know it before class starts.</div></div>
+    <div class="blk bl-am"><div class="b-time">6:00–6:45 AM</div><div class="b-label">RFI + Flashcards — light session</div><div class="b-desc">One episode. Quick card review. Save energy for class.</div></div>
+    <div class="blk bl-pu"><div class="b-time">During class</div><div class="b-label">Active class mode <span class="pill pill-g">write every correction</span></div><div class="b-desc">Corrections are more valuable than new notes. Speak up. Participate. Every question = speaking practice.</div></div>
+    <div class="blk bl-am"><div class="b-time">After class (30 min max)</div><div class="b-label">Post-class notes + teach-it-back</div><div class="b-desc">Expand notes while fresh. Add own examples. Explain hardest concept out loud. Then rest.</div></div>
+  </div>
+  <div id="sc-su" class="sv">
+    <div class="blk bl-bl"><div class="b-time">4:00–6:00 AM</div><div class="b-label">Review Saturday's class + teach-it-back</div><div class="b-desc">Active recall of Saturday. Walk into Sunday's class with Saturday locked in.</div></div>
+    <div class="blk bl-pu"><div class="b-time">During class</div><div class="b-label">Active mode — same as Saturday</div><div class="b-desc">Write corrections. Speak up. Every question = free speaking practice.</div></div>
+    <div class="blk bl-gn"><div class="b-time">After class (1 hour)</div><div class="b-label">Weekly review</div><div class="b-desc">What did I master? What is shaky? Write 3 weak spots for next week.</div></div>
+    <div class="blk bl-mu"><div class="b-time">Sunday night</div><div class="b-label">Rest + early sleep</div><div class="b-desc">Brain consolidates this week's learning while you sleep. Late Sunday = broken Monday 4am.</div></div>
+  </div>
+  <div id="sc-ru" class="sv">
+    <div class="nn"><div class="nn-t">5 non-negotiables</div><ul class="rl"><li><span class="rn">01</span>Alarm clock only. Phone in kitchen every night.</li><li><span class="rn">02</span>Homework always first — before RFI, before flashcards.</li><li><span class="rn">03</span>RFI every morning. Even 10 minutes. Miss this = listening score suffers.</li><li><span class="rn">04</span>Night prep every night. 5 minutes. Write task, open laptop, phone to kitchen.</li><li><span class="rn">05</span>Evening = ONE task only. One thing, done well.</li></ul></div>
+    <div class="card"><h3>5-day mastery method per class topic</h3><ul class="rl"><li><span class="rn">D1</span>Right after class: rewrite notes from memory</li><li><span class="rn">D2</span>Do homework with slides open</li><li><span class="rn">D3</span>Active recall + speak vocab out loud</li><li><span class="rn">D4</span>Write and speak using that grammar</li><li><span class="rn">D5</span>Weak spots only before next class</li></ul></div>
+  </div>
+</div>
+
+<!-- CURRICULUM -->
 <div id="curriculum" class="page">
   <div class="sub-tabs">
-    <button class="sub-tab active" onclick="subShow('roadmap',this,'curriculum')">5-Month Roadmap</button>
-    <button class="sub-tab" onclick="subShow('grammar',this,'curriculum')">Grammar Path</button>
-    <button class="sub-tab" onclick="subShow('4skills',this,'curriculum')">4 TEF Skills</button>
-    <button class="sub-tab" onclick="subShow('weekly',this,'curriculum')">Weekly Template</button>
+    <button class="st active" onclick="sShow('cu-rm',this,'curriculum')">5-Month Roadmap</button>
+    <button class="st" onclick="sShow('cu-gr',this,'curriculum')">Grammar Path</button>
+    <button class="st" onclick="sShow('cu-sk',this,'curriculum')">4 TEF Skills</button>
+    <button class="st" onclick="sShow('cu-wk',this,'curriculum')">Weekly Template</button>
   </div>
-
-  <!-- ROADMAP -->
-  <div id="roadmap" class="sub-view active">
-    <div class="alert alert-b">You are here: Week 2 of Month 1. Classes are Sat+Sun. Target: TEF Canada CLB 7 by September. Follow this roadmap month by month — the content changes, the structure never does.</div>
-
-    <div class="month-card">
-      <div class="month-header"><span class="mbadge mb1">Month 1 — April</span><div><div class="month-title">Build the sound system</div><div class="month-sub">You are here now</div></div></div>
-      <ul class="rlist">
-        <li><span class="dot dot-b"></span>Alphabet, letter combos, silent letters, -er endings</li>
-        <li><span class="dot dot-b"></span>French accents — é, è, ê and the rules for each</li>
-        <li><span class="dot dot-b"></span>Pronouns — je, tu, il, elle, on, nous, vous, ils, elles</li>
-        <li><span class="dot dot-b"></span>La liaison — when to connect words, when never to</li>
-        <li><span class="dot dot-b"></span>Être and avoir — master these completely, all pronouns</li>
-        <li><span class="dot dot-b"></span>Present tense -ER verbs — manger, parler, aimer</li>
-        <li><span class="dot dot-b"></span>Articles — le, la, les, un, une, des</li>
-        <li><span class="dot dot-b"></span>Basic greetings and real sentences every day</li>
-      </ul>
-    </div>
-
-    <div class="month-card">
-      <div class="month-header"><span class="mbadge mb2">Month 2 — May</span><div><div class="month-title">Build sentences that work</div><div class="month-sub">Foundation solidifies</div></div></div>
-      <ul class="rlist">
-        <li><span class="dot dot-g"></span>Present tense -IR and -RE verbs (finir, prendre)</li>
-        <li><span class="dot dot-g"></span>Negation — ne...pas, ne...jamais, ne...plus</li>
-        <li><span class="dot dot-g"></span>Questions — intonation, est-ce que, inversion</li>
-        <li><span class="dot dot-g"></span>Adjectives — gender agreement, placement rules</li>
-        <li><span class="dot dot-g"></span>Passé composé with avoir (j'ai mangé, tu as parlé)</li>
-        <li><span class="dot dot-g"></span>Passé composé with être — the 17 DR MRS VANDERTRAMP verbs</li>
-        <li><span class="dot dot-g"></span>Futur proche — aller + infinitive (je vais manger)</li>
-        <li><span class="dot dot-g"></span>Numbers, time, dates — essential for TEF listening</li>
-      </ul>
-    </div>
-
-    <div class="month-card">
-      <div class="month-header"><span class="mbadge mb3">Month 3 — June</span><div><div class="month-title">Expand + start TEF practice</div><div class="month-sub">Pivot point</div></div></div>
-      <ul class="rlist">
-        <li><span class="dot dot-a"></span>Imparfait — background description in past (c'était, il faisait)</li>
-        <li><span class="dot dot-a"></span>Passé composé vs Imparfait — the #1 tested grammar in TEF writing</li>
-        <li><span class="dot dot-a"></span>Futur simple — je mangerai, tu parleras, elle sera</li>
-        <li><span class="dot dot-a"></span>Direct pronouns — le, la, les. Indirect — lui, leur</li>
-        <li><span class="dot dot-a"></span>Connectors — donc, mais, parce que, cependant, en revanche</li>
-        <li><span class="dot dot-a"></span>First TEF mock tests — listening + reading sections</li>
-        <li><span class="dot dot-a"></span>TEF writing format — learn the structure for task 1 and 2</li>
-      </ul>
-    </div>
-
-    <div class="month-card">
-      <div class="month-header"><span class="mbadge mb4">Month 4 — July</span><div><div class="month-title">Advanced grammar + full TEF drills</div><div class="month-sub">Exam focus begins</div></div></div>
-      <ul class="rlist">
-        <li><span class="dot dot-r"></span>Conditionnel — je voudrais, ce serait, il faudrait</li>
-        <li><span class="dot dot-r"></span>Subjonctif — il faut que, je veux que, bien que</li>
-        <li><span class="dot dot-r"></span>Relative pronouns — qui, que, dont, où in complex sentences</li>
-        <li><span class="dot dot-r"></span>Passive voice — la maison est construite par...</li>
-        <li><span class="dot dot-r"></span>Full timed TEF mocks — all 4 sections every weekend</li>
-        <li><span class="dot dot-r"></span>Send speaking recordings to teacher on WhatsApp weekly</li>
-        <li><span class="dot dot-r"></span>Vocabulary by topic — work, environment, society, health</li>
-      </ul>
-    </div>
-
-    <div class="month-card">
-      <div class="month-header"><span class="mbadge mb5">Month 5 — Aug/Sep</span><div><div class="month-title">Peak performance — exam ready</div><div class="month-sub">Final push</div></div></div>
-      <ul class="rlist">
-        <li><span class="dot dot-p"></span>Full mock exams every weekend under real timed conditions</li>
-        <li><span class="dot dot-p"></span>Analyse every mock — find patterns in your mistakes</li>
-        <li><span class="dot dot-p"></span>Speed drills — reading comprehension under time pressure</li>
-        <li><span class="dot dot-p"></span>Speaking fluency — opinion structures and argument frameworks</li>
-        <li><span class="dot dot-p"></span>Writing templates — memorize structures for formal letters</li>
-        <li><span class="dot dot-p"></span>Listening — fast speech, varied accents, real French audio daily</li>
-        <li><span class="dot dot-p"></span>Final week: rest and light review only. Trust the work.</li>
-      </ul>
-    </div>
+  <div id="cu-rm" class="sv active">
+    <div class="al-b alert">You are here: Week 2 of Month 1. Classes Sat+Sun. Target: TEF Canada CLB 7 by September.</div>
+    <div class="mc"><div class="mh"><span class="mb mb1">Month 1 — April</span><div><div style="font-size:15px;font-weight:500;color:var(--tx)">Build the sound system</div><div style="font-size:12px;color:var(--mu)">You are here now</div></div></div><ul class="rl"><li><span class="dot dot-b"></span>Alphabet, letter combos, silent letters, -er endings</li><li><span class="dot dot-b"></span>French accents — é, è, ê and when to use each</li><li><span class="dot dot-b"></span>Pronouns — je, tu, il, elle, on, nous, vous, ils, elles</li><li><span class="dot dot-b"></span>La liaison — when to connect words, when never to</li><li><span class="dot dot-b"></span>Être and avoir — master both completely, all pronouns</li><li><span class="dot dot-b"></span>Present tense -ER verbs — manger, parler, aimer</li><li><span class="dot dot-b"></span>Articles — le, la, les, un, une, des</li></ul></div>
+    <div class="mc"><div class="mh"><span class="mb mb2">Month 2 — May</span><div><div style="font-size:15px;font-weight:500;color:var(--tx)">Build sentences that work</div></div></div><ul class="rl"><li><span class="dot dot-g"></span>Present tense -IR and -RE verbs (finir, prendre)</li><li><span class="dot dot-g"></span>Negation — ne...pas, ne...jamais, ne...plus</li><li><span class="dot dot-g"></span>Passé composé with avoir + être (DR MRS VANDERTRAMP)</li><li><span class="dot dot-g"></span>Futur proche — aller + infinitive (je vais manger)</li><li><span class="dot dot-g"></span>Adjective agreement — gender + plural</li><li><span class="dot dot-g"></span>Numbers, time, dates — essential for TEF listening</li></ul></div>
+    <div class="mc"><div class="mh"><span class="mb mb3">Month 3 — June</span><div><div style="font-size:15px;font-weight:500;color:var(--tx)">Expand + start TEF practice</div></div></div><ul class="rl"><li><span class="dot dot-a"></span>Imparfait — background past (c'était, il faisait)</li><li><span class="dot dot-a"></span>Passé composé vs Imparfait — the #1 tested grammar point</li><li><span class="dot dot-a"></span>Futur simple — je mangerai, tu parleras</li><li><span class="dot dot-a"></span>Object pronouns — le, la, les, lui, leur</li><li><span class="dot dot-a"></span>Connectors — donc, mais, parce que, cependant</li><li><span class="dot dot-a"></span>First TEF mock tests — listening + reading sections</li></ul></div>
+    <div class="mc"><div class="mh"><span class="mb mb4">Month 4 — July</span><div><div style="font-size:15px;font-weight:500;color:var(--tx)">Advanced grammar + full TEF drills</div></div></div><ul class="rl"><li><span class="dot dot-r"></span>Conditionnel — je voudrais, ce serait, il faudrait</li><li><span class="dot dot-r"></span>Subjonctif — il faut que, je veux que, bien que</li><li><span class="dot dot-r"></span>Relative pronouns — qui, que, dont, où</li><li><span class="dot dot-r"></span>Full timed TEF mocks — all 4 sections weekly</li><li><span class="dot dot-r"></span>Send speaking recordings to teacher on WhatsApp weekly</li></ul></div>
+    <div class="mc"><div class="mh"><span class="mb mb5">Month 5 — Aug/Sep</span><div><div style="font-size:15px;font-weight:500;color:var(--tx)">Peak performance — exam ready</div></div></div><ul class="rl"><li><span class="dot dot-p"></span>Full mock exams every weekend under real timed conditions</li><li><span class="dot dot-p"></span>Analyse every mock — find patterns in mistakes</li><li><span class="dot dot-p"></span>Speed drills — reading comprehension under time pressure</li><li><span class="dot dot-p"></span>Final week: rest and light review only. Trust the work.</li></ul></div>
   </div>
-
-  <!-- GRAMMAR PATH -->
-  <div id="grammar" class="sub-view">
-    <div class="alert alert-b">Grammar must be learned in sequence. Each level builds on the previous. Follow this exact order — skipping ahead creates gaps that cost you marks.</div>
-
-    <div class="card">
-      <h3>Level 1 — You need these to say anything (Month 1)</h3>
-      <ul class="rlist">
-        <li><span class="dot dot-b"></span>Être + avoir — present tense, all pronouns. Memorize completely.</li>
-        <li><span class="dot dot-b"></span>-ER verb conjugation — applies to 90% of French verbs</li>
-        <li><span class="dot dot-b"></span>Articles — le/la/les (definite), un/une/des (indefinite)</li>
-        <li><span class="dot dot-b"></span>Negation — ne...pas around the verb</li>
-        <li><span class="dot dot-b"></span>Basic questions — intonation rising at the end</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Level 2 — You need these to talk about time (Month 2)</h3>
-      <ul class="rlist">
-        <li><span class="dot dot-g"></span>Passé composé — avoir + past participle (j'ai mangé)</li>
-        <li><span class="dot dot-g"></span>Être verbs in passé composé — DR MRS VANDERTRAMP</li>
-        <li><span class="dot dot-g"></span>Futur proche — aller + infinitive. Je vais partir demain.</li>
-        <li><span class="dot dot-g"></span>Adjective agreement — masculine/feminine/plural</li>
-        <li><span class="dot dot-g"></span>-IR and -RE verb patterns (finir, vendre)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Level 3 — You need these for natural French (Month 3)</h3>
-      <ul class="rlist">
-        <li><span class="dot dot-a"></span>Imparfait — background past. C'était beau. Il habitait là.</li>
-        <li><span class="dot dot-a"></span>PC vs Imparfait — the #1 tested grammar point in TEF writing</li>
-        <li><span class="dot dot-a"></span>Direct object pronouns — le, la, les (Je le mange)</li>
-        <li><span class="dot dot-a"></span>Indirect object pronouns — lui, leur (Je lui parle)</li>
-        <li><span class="dot dot-a"></span>Connectors — mais, donc, parce que, cependant, en revanche, ainsi</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Level 4 — You need these for CLB 7 (Month 4)</h3>
-      <ul class="rlist">
-        <li><span class="dot dot-r"></span>Futur simple — all verbs. Je mangerai, tu iras, elle sera.</li>
-        <li><span class="dot dot-r"></span>Conditionnel — polite + hypothetical. Je voudrais, ce serait bien.</li>
-        <li><span class="dot dot-r"></span>Subjonctif — key triggers: il faut que, je veux que, bien que</li>
-        <li><span class="dot dot-r"></span>Relative pronouns — qui, que, dont, où in complex sentences</li>
-        <li><span class="dot dot-r"></span>Gérondif — en mangeant, en travaillant (while doing something)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>How to study each grammar point — 5-day method</h3>
-      <ul class="rlist">
-        <li><span class="dot dot-p"></span>Day 1: understand the rule — WHY it works, not just how</li>
-        <li><span class="dot dot-p"></span>Day 2: write 10 sentences using it about your own life</li>
-        <li><span class="dot dot-p"></span>Day 3: speak those sentences out loud until automatic</li>
-        <li><span class="dot dot-p"></span>Day 4: find it in your RFI listening — notice it in real French</li>
-        <li><span class="dot dot-p"></span>Day 5: use it in your morning speaking block without thinking</li>
-      </ul>
-    </div>
+  <div id="cu-gr" class="sv">
+    <div class="al-b alert">Grammar in sequence. Each level builds on the previous. Follow this exact order.</div>
+    <div class="card"><h3>Level 1 — say anything (Month 1)</h3><ul class="rl"><li><span class="dot dot-b"></span>Être + avoir — present tense, all pronouns. Memorize completely.</li><li><span class="dot dot-b"></span>-ER verb conjugation — applies to 90% of French verbs</li><li><span class="dot dot-b"></span>Articles — le/la/les, un/une/des</li><li><span class="dot dot-b"></span>Negation — ne...pas around the verb</li></ul></div>
+    <div class="card"><h3>Level 2 — talk about time (Month 2)</h3><ul class="rl"><li><span class="dot dot-g"></span>Passé composé — avoir + past participle (j'ai mangé)</li><li><span class="dot dot-g"></span>Être verbs — DR MRS VANDERTRAMP</li><li><span class="dot dot-g"></span>Futur proche — aller + infinitive</li><li><span class="dot dot-g"></span>Adjective agreement — masculine/feminine/plural</li></ul></div>
+    <div class="card"><h3>Level 3 — natural French (Month 3)</h3><ul class="rl"><li><span class="dot dot-a"></span>Imparfait — background descriptions, habits in past</li><li><span class="dot dot-a"></span>PC vs Imparfait — #1 tested grammar in TEF writing</li><li><span class="dot dot-a"></span>Object pronouns — le, la, les, lui, leur</li><li><span class="dot dot-a"></span>Connectors — mais, donc, parce que, cependant, en revanche</li></ul></div>
+    <div class="card"><h3>Level 4 — CLB 7 (Month 4)</h3><ul class="rl"><li><span class="dot dot-r"></span>Futur simple — all verbs. Je mangerai, tu iras, elle sera.</li><li><span class="dot dot-r"></span>Conditionnel — polite + hypothetical. Je voudrais, ce serait.</li><li><span class="dot dot-r"></span>Subjonctif — il faut que, je veux que, bien que</li><li><span class="dot dot-r"></span>Relative pronouns — qui, que, dont, où</li></ul></div>
   </div>
-
-  <!-- 4 TEF SKILLS -->
-  <div id="4skills" class="sub-view">
-    <div class="alert alert-a">TEF tests 4 skills. Most students only study grammar and ignore speaking and listening. That's why they fail. You will train all 4 every single day.</div>
-
-    <div class="tef-b">
-      <div class="tef-title">Listening — Compréhension de l'oral <span class="tef-score">CLB 7 ≈ 60%</span></div>
-      <ul class="rlist">
-        <li><span class="rn">→</span>Train daily with RFI — your primary listening tool every morning</li>
-        <li><span class="rn">→</span>Month 1-2: slow clear speech. Month 3+: real speed French</li>
-        <li><span class="rn">→</span>Passive input at work adds 5-6 hours of ear training per shift — free</li>
-        <li><span class="rn">→</span>Exam tip: read all questions FIRST before the audio plays</li>
-        <li><span class="rn">→</span>They test details — numbers, names, dates. Note them while listening.</li>
-      </ul>
-    </div>
-    <div class="tef-b">
-      <div class="tef-title">Reading — Compréhension des écrits <span class="tef-score">CLB 7 ≈ 60%</span></div>
-      <ul class="rlist">
-        <li><span class="rn">→</span>Read your class slides as real French text, not just study material</li>
-        <li><span class="rn">→</span>Month 2+: one short French article per week — Le Monde Simplifié</li>
-        <li><span class="rn">→</span>Scan technique: read the question first, then scan for the answer</li>
-        <li><span class="rn">→</span>Vocabulary is the bottleneck — every unknown word costs you time</li>
-        <li><span class="rn">→</span>Month 3+: timed drills — 72 seconds per question maximum</li>
-      </ul>
-    </div>
-    <div class="tef-b">
-      <div class="tef-title">Writing — Expression écrite <span class="tef-score">CLB 7 = B2 level</span></div>
-      <ul class="rlist">
-        <li><span class="rn">→</span>2 tasks: short message (60-80 words) + opinion essay (180-200 words)</li>
-        <li><span class="rn">→</span>Task 1: formal or informal message — learn both formats cold</li>
-        <li><span class="rn">→</span>Task 2: give and defend an opinion — connector words are essential</li>
-        <li><span class="rn">→</span>Your Tuesday evening paragraph practice directly trains this</li>
-        <li><span class="rn">→</span>Month 3+: timed essays — 25 minutes for task 2, no exceptions</li>
-      </ul>
-    </div>
-    <div class="tef-b">
-      <div class="tef-title">Speaking — Expression orale <span class="tef-score">CLB 7 = B2 level</span></div>
-      <ul class="rlist">
-        <li><span class="rn">→</span>TEF speaking: monologue (3 min) + dialogue + opinion</li>
-        <li><span class="rn">→</span>Your 7:30 AM daily speaking block is your primary training</li>
-        <li><span class="rn">→</span>Send WhatsApp recordings to your teacher every week without fail</li>
-        <li><span class="rn">→</span>Month 2+: argue both sides — "D'un côté... de l'autre côté..."</li>
-        <li><span class="rn">→</span>Biggest mistake: translating from English in your head. Think in French, even broken French.</li>
-      </ul>
-    </div>
+  <div id="cu-sk" class="sv">
+    <div class="al-a alert">Train all 4 skills daily. Most students only study grammar — that's why they fail.</div>
+    <div class="tb"><div class="tt">Listening <span class="ts">CLB 7 ≈ 60%</span></div><ul class="rl"><li><span class="rn">→</span>RFI daily — primary listening tool. Non-negotiable.</li><li><span class="rn">→</span>Passive podcast at work — free ear training every shift</li><li><span class="rn">→</span>Exam: read answer choices BEFORE audio plays</li><li><span class="rn">→</span>Audio plays once only — train for this right now</li></ul></div>
+    <div class="tb"><div class="tt">Reading <span class="ts">CLB 7 ≈ 60%</span></div><ul class="rl"><li><span class="rn">→</span>Month 2+: one French article per week — Le Monde Simplifié</li><li><span class="rn">→</span>Scan: question first, then scan for answer</li><li><span class="rn">→</span>Month 3+: 72 seconds per question maximum</li></ul></div>
+    <div class="tb"><div class="tt">Writing <span class="ts">CLB 7 = B2</span></div><ul class="rl"><li><span class="rn">→</span>2 tasks: message (60-80w) + opinion essay (180-200w)</li><li><span class="rn">→</span>Connectors: D'abord · Ensuite · De plus · Cependant · En conclusion</li><li><span class="rn">→</span>Tuesday evening writing practice trains this directly</li></ul></div>
+    <div class="tb"><div class="tt">Speaking <span class="ts">CLB 7 = B2</span></div><ul class="rl"><li><span class="rn">→</span>7:30 AM shadowing + free speaking = your primary training</li><li><span class="rn">→</span>Send WhatsApp recordings to teacher every single week</li><li><span class="rn">→</span>Month 2+: argue both sides — D'un côté... de l'autre côté...</li></ul></div>
   </div>
-
-  <!-- WEEKLY TEMPLATE -->
-  <div id="weekly" class="sub-view">
-    <div class="alert alert-g">This is what your week looks like when the system is running. Content changes each month — the structure never changes. Repetition of structure = freedom of mind.</div>
-
-    <div class="card">
-      <h3>Mon–Fri morning blocks</h3>
-      <div class="week-grid">
-        <div class="week-pill"><div class="wp-day">4:15 AM</div><div class="wp-task">Grammar / homework — hardest task first</div></div>
-        <div class="week-pill"><div class="wp-day">5:15 AM</div><div class="wp-task">Class review — active recall, not re-reading</div></div>
-        <div class="week-pill"><div class="wp-day">6:00 AM</div><div class="wp-task">RFI listening — write 3 things you caught</div></div>
-        <div class="week-pill"><div class="wp-day">6:45 AM</div><div class="wp-task">Anki — review deck + 5 new words</div></div>
-        <div class="week-pill"><div class="wp-day">7:30 AM</div><div class="wp-task">Speak 5 sentences in French out loud</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>5-day method for each class topic</h3>
-      <div class="week-grid">
-        <div class="week-pill"><div class="wp-day">Day 1</div><div class="wp-task">Rewrite class notes from memory</div></div>
-        <div class="week-pill"><div class="wp-day">Day 2</div><div class="wp-task">Do the homework with slides open</div></div>
-        <div class="week-pill"><div class="wp-day">Day 3</div><div class="wp-task">Active recall — flashcards + speak vocab</div></div>
-        <div class="week-pill"><div class="wp-day">Day 4</div><div class="wp-task">Use it — write + speak that grammar</div></div>
-        <div class="week-pill"><div class="wp-day">Day 5</div><div class="wp-task">Weak spots only before next class</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Weekend class days</h3>
-      <div class="week-grid">
-        <div class="week-pill"><div class="wp-day">Sat morning</div><div class="wp-task">Pre-class active recall of last class</div></div>
-        <div class="week-pill"><div class="wp-day">Sat class</div><div class="wp-task">Write every correction. Speak up.</div></div>
-        <div class="week-pill"><div class="wp-day">Sun morning</div><div class="wp-task">Review Saturday's class while fresh</div></div>
-        <div class="week-pill"><div class="wp-day">Sun class</div><div class="wp-task">Same — corrections, participation</div></div>
-        <div class="week-pill"><div class="wp-day">Sun evening</div><div class="wp-task">Weekly review — 3 weak spots for next week</div></div>
-      </div>
-    </div>
+  <div id="cu-wk" class="sv">
+    <div class="card"><h3>Mon–Fri morning blocks</h3><div class="wg"><div class="wp"><div class="wd">4:15 AM</div><div class="wt">Homework / active recall</div></div><div class="wp"><div class="wd">5:15 AM</div><div class="wt">Notes + teach-it-back</div></div><div class="wp"><div class="wd">6:00 AM</div><div class="wt">RFI listening</div></div><div class="wp"><div class="wd">6:45 AM</div><div class="wt">Flashcards + mining</div></div><div class="wp"><div class="wd">7:30 AM</div><div class="wt">Shadowing + speaking</div></div></div></div>
+    <div class="card"><h3>5-day method per class topic</h3><div class="wg"><div class="wp"><div class="wd">Day 1</div><div class="wt">Rewrite notes from memory</div></div><div class="wp"><div class="wd">Day 2</div><div class="wt">Homework with slides</div></div><div class="wp"><div class="wd">Day 3</div><div class="wt">Active recall + speak</div></div><div class="wp"><div class="wd">Day 4</div><div class="wt">Write + speak grammar</div></div><div class="wp"><div class="wd">Day 5</div><div class="wt">Weak spots only</div></div></div></div>
   </div>
 </div>
 
-<!-- ════════ TEF STRATEGY ════════ -->
+<!-- METHODS -->
+<div id="methods" class="page">
+  <div class="al-b alert">These 3 techniques are built into every daily todo. Read this once so you know exactly what you are doing and why.</div>
+  <div class="card" style="border-left:3px solid var(--pu)">
+    <h3 style="color:var(--pu)">Shadowing — for speaking and pronunciation</h3>
+    <p style="margin-bottom:.6rem">Listen to native French and speak at the exact same time — not after. Copy rhythm, speed, sound. Forces your brain to produce French without translating from English. 5 minutes daily beats 1 hour of free practice.</p>
+    <p><strong style="color:var(--tx)">How:</strong> RFI episode → one sentence → press play → speak simultaneously → repeat 3 times → next sentence.</p>
+    <button class="fc-action-btn" style="margin-top:.6rem" onclick="openModal('sh')">Full guide →</button>
+  </div>
+  <div class="card" style="border-left:3px solid var(--gn)">
+    <h3 style="color:var(--gn)">Sentence mining — for vocabulary</h3>
+    <p style="margin-bottom:.6rem">Pick a real sentence from your RFI episode or class slide with one unknown word. Add the full sentence to your flashcard — not just the word. Brain retains words in context 4x better.</p>
+    <p><strong style="color:var(--tx)">How:</strong> Find sentence with ONE unknown word → add to Flashcards tab → front = sentence, back = meaning + pronunciation + variation.</p>
+    <button class="fc-action-btn" style="margin-top:.6rem" onclick="openModal('sm')">Full guide →</button>
+  </div>
+  <div class="card" style="border-left:3px solid var(--am)">
+    <h3 style="color:var(--am)">Teach-it-back — for grammar</h3>
+    <p style="margin-bottom:.6rem">After reviewing a grammar rule, close your notes and explain it out loud in simple terms — as if teaching a beginner. If you cannot explain it simply, you do not know it yet.</p>
+    <p><strong style="color:var(--tx)">How:</strong> Review notes → close them → say out loud: "Okay so this rule works like this..." → 2 minutes → stuck = the gap to re-read.</p>
+    <button class="fc-action-btn" style="margin-top:.6rem" onclick="openModal('tib')">Full guide →</button>
+  </div>
+  <div class="card" style="border-left:3px solid var(--bl)">
+    <h3 style="color:var(--bl)">Active recall — for everything</h3>
+    <p style="margin-bottom:.6rem">Cover your notes. Write from memory. Uncover and check. Never just re-read. The act of trying to remember — even failing — is what builds long-term memory.</p>
+    <button class="fc-action-btn" style="margin-top:.6rem" onclick="openModal('ar')">Full guide →</button>
+  </div>
+  <div class="card" style="border-left:3px solid var(--pk)">
+    <h3 style="color:var(--pk)">Gender mastery — le / la / les</h3>
+    <p style="margin-bottom:.6rem">French gender is not logical — it must be memorized with the article. Every noun you learn, learn with its article. The Drills tab has daily gender mini-drills. 5 nouns per day = 150 per month.</p>
+    <button class="fc-action-btn" style="margin-top:.6rem" onclick="openModal('gm')">Full guide →</button>
+  </div>
+</div>
+
+<!-- TEF -->
 <div id="tef" class="page">
-  <div class="alert alert-a">Most people study French. Very few study the TEF exam format. Knowing the format can move your score by a full CLB level on its own. Study this from Month 3.</div>
-
-  <div class="tef-b">
-    <div class="tef-title">TEF Canada — exam structure</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Listening: 60 questions, ~40 minutes — multiple choice</li>
-      <li><span class="rn">→</span>Reading: 50 questions, 60 minutes — multiple choice + gap fill</li>
-      <li><span class="rn">→</span>Writing: 2 tasks, 60 minutes — message + opinion essay</li>
-      <li><span class="rn">→</span>Speaking: 3 tasks, ~15 minutes — recorded, not live with examiner</li>
-      <li><span class="rn">→</span>CLB 7 = roughly 60–70% in each section</li>
-    </ul>
-  </div>
-  <div class="tef-b">
-    <div class="tef-title">Listening strategy</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Read all answer choices BEFORE the audio plays — always</li>
-      <li><span class="rn">→</span>Mark your best guess immediately — never leave blank</li>
-      <li><span class="rn">→</span>Audio plays once only. No repeats. Train for this right now.</li>
-      <li><span class="rn">→</span>Answers often use synonyms — the exact word from audio may not appear</li>
-      <li><span class="rn">→</span>Focus on: WHO, WHAT, WHERE, WHEN, WHY in every clip</li>
-    </ul>
-  </div>
-  <div class="tef-b">
-    <div class="tef-title">Reading strategy</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Read the question first, then scan the text for the answer</li>
-      <li><span class="rn">→</span>72 seconds per question maximum — practice this pace from Month 3</li>
-      <li><span class="rn">→</span>If stuck after 60 seconds: best guess, move on, come back</li>
-      <li><span class="rn">→</span>Unknown words → use context clues from surrounding sentences</li>
-      <li><span class="rn">→</span>The answer is always in the text — never from outside knowledge</li>
-    </ul>
-  </div>
-  <div class="tef-b">
-    <div class="tef-title">Writing — essay structure to memorize</div>
-    <ul class="rlist">
-      <li><span class="rn">1</span>Introduction: state the topic + your position (2-3 sentences)</li>
-      <li><span class="rn">2</span>Body 1: first argument + example (3-4 sentences)</li>
-      <li><span class="rn">3</span>Body 2: second argument + example (3-4 sentences)</li>
-      <li><span class="rn">4</span>Conclusion: restate position + open question (2 sentences)</li>
-      <li><span class="rn">→</span>Connectors to memorize cold: D'abord · Ensuite · De plus · Cependant · En conclusion</li>
-      <li><span class="rn">→</span>Target 200 words minimum. Count every practice essay.</li>
-    </ul>
-  </div>
-  <div class="tef-b">
-    <div class="tef-title">Speaking — monologue structure</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>You get a topic + 1 minute to prepare. Use every second of it.</li>
-      <li><span class="rn">→</span>Structure: position → reason 1 → reason 2 → nuance → conclusion</li>
-      <li><span class="rn">→</span>Say "c'est-à-dire" and "en effet" — sounds natural and fills thinking time</li>
-      <li><span class="rn">→</span>Speak slowly and clearly — examiners reward clarity over speed</li>
-      <li><span class="rn">→</span>Mistakes are fine — stopping and restarting kills your score. Keep going always.</li>
-    </ul>
-  </div>
+  <div class="al-a alert">Knowing the TEF format can move your score by a full CLB level. Study this from Month 3.</div>
+  <div class="tb"><div class="tt">TEF Canada — structure</div><ul class="rl"><li><span class="rn">→</span>Listening: 60 questions, ~40 min — multiple choice</li><li><span class="rn">→</span>Reading: 50 questions, 60 min — multiple choice + gap fill</li><li><span class="rn">→</span>Writing: 2 tasks, 60 min — message + opinion essay</li><li><span class="rn">→</span>Speaking: 3 tasks, ~15 min — recorded, not live</li><li><span class="rn">→</span>CLB 7 = roughly 60–70% in each section</li></ul></div>
+  <div class="tb"><div class="tt">Listening strategy</div><ul class="rl"><li><span class="rn">→</span>Read answer choices BEFORE audio plays — always</li><li><span class="rn">→</span>Audio plays once only. Train for this with RFI now.</li><li><span class="rn">→</span>Answers use synonyms — exact word may not appear</li><li><span class="rn">→</span>Focus: WHO, WHAT, WHERE, WHEN, WHY in every clip</li></ul></div>
+  <div class="tb"><div class="tt">Reading strategy</div><ul class="rl"><li><span class="rn">→</span>Question first, then scan text for answer</li><li><span class="rn">→</span>72 seconds per question maximum</li><li><span class="rn">→</span>Stuck after 60s: best guess, move on, come back</li></ul></div>
+  <div class="tb"><div class="tt">Writing — essay structure</div><ul class="rl"><li><span class="rn">1</span>Intro: topic + your position (2-3 sentences)</li><li><span class="rn">2</span>Body 1: argument + example (3-4 sentences)</li><li><span class="rn">3</span>Body 2: argument + example (3-4 sentences)</li><li><span class="rn">4</span>Conclusion: restate + open question</li><li><span class="rn">→</span>Connectors: D'abord · Ensuite · De plus · Cependant · En conclusion</li></ul></div>
+  <div class="tb"><div class="tt">Speaking — monologue</div><ul class="rl"><li><span class="rn">→</span>1 minute prep — use every second</li><li><span class="rn">→</span>Structure: position → reason 1 → reason 2 → nuance → conclusion</li><li><span class="rn">→</span>Fill silence: C'est-à-dire... / En fait... / En effet...</li><li><span class="rn">→</span>Keep going even with mistakes — stopping kills your score</li></ul></div>
 </div>
 
-<!-- ════════ TCF STRATEGY ════════ -->
+<!-- TCF -->
 <div id="tcf" class="page">
-  <div class="alert alert-b">TCF Canada (Test de Connaissance du Français) is shorter and more flexible than TEF. It tests the same 4 skills but with a different format. Know both so you can choose which one suits you better.</div>
-
-  <div class="tef-b">
-    <div class="tef-title">TEF vs TCF — which one should you take?</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Both are accepted for Canadian immigration (Express Entry, PR)</li>
-      <li><span class="rn">→</span>TEF Canada: longer, more detailed, more writing — better if you are strong in grammar</li>
-      <li><span class="rn">→</span>TCF Canada: shorter, adaptive difficulty, no writing in some versions — better if you are stronger in listening and speaking</li>
-      <li><span class="rn">→</span>CLB 7 = same target in both. Your preparation is identical for both exams.</li>
-      <li><span class="rn">→</span>Decide by Month 3 which one you will sit — then do mock tests for that specific format only</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">TCF Canada — exam structure</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Listening: 29 questions, ~35 minutes — 3 levels of difficulty, adaptive</li>
-      <li><span class="rn">→</span>Reading: 29 questions, ~60 minutes — 3 levels of difficulty, adaptive</li>
-      <li><span class="rn">→</span>Writing: 2 tasks, 60 minutes — message + structured essay</li>
-      <li><span class="rn">→</span>Speaking: 3 tasks, ~12 minutes — recorded monologue + dialogue</li>
-      <li><span class="rn">→</span>Adaptive = questions get harder as you answer correctly. Answer well early = harder but higher-scoring questions later.</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">Listening strategy — TCF</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Questions go from easy to hard within each section — don't panic when it gets harder. That means you're doing well.</li>
-      <li><span class="rn">→</span>Read answer choices before audio plays — same rule as TEF</li>
-      <li><span class="rn">→</span>Audio plays once only — train for this with RFI daily</li>
-      <li><span class="rn">→</span>Early questions are simple conversations — don't overthink them</li>
-      <li><span class="rn">→</span>Later questions are news reports, debates, formal speeches — your RFI practice covers this exactly</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">Reading strategy — TCF</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Same adaptive structure — gets harder as you score correctly</li>
-      <li><span class="rn">→</span>Early texts are short, simple — ads, signs, short messages</li>
-      <li><span class="rn">→</span>Later texts are long articles, formal reports — build reading stamina from Month 2</li>
-      <li><span class="rn">→</span>Scan technique: question first, then scan — same as TEF</li>
-      <li><span class="rn">→</span>Never spend more than 90 seconds on one question — guess and move</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">Writing — TCF essay structure</div>
-    <ul class="rlist">
-      <li><span class="rn">1</span>Task 1: write a message or letter (60-80 words) — formal or informal</li>
-      <li><span class="rn">2</span>Task 2: write a structured text giving your opinion (180-200 words)</li>
-      <li><span class="rn">→</span>Same structure as TEF: intro → argument 1 → argument 2 → conclusion</li>
-      <li><span class="rn">→</span>Use connectors cold: Premièrement · De plus · En outre · Cependant · Pour conclure</li>
-      <li><span class="rn">→</span>Graded on: task completion, vocabulary range, grammar accuracy, coherence</li>
-      <li><span class="rn">→</span>Write minimum 180 words for task 2 — going under loses marks automatically</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">Speaking — TCF monologue structure</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Task 1: describe a document or image — say what you see, what it means</li>
-      <li><span class="rn">→</span>Task 2: give your opinion on a topic — argue a position clearly</li>
-      <li><span class="rn">→</span>Task 3: react to a situation — role play or respond to a problem</li>
-      <li><span class="rn">→</span>You get preparation time — use every second of it to structure your answer</li>
-      <li><span class="rn">→</span>Fill silence with: "C'est-à-dire...", "En fait...", "Ce qui est intéressant c'est que..."</li>
-      <li><span class="rn">→</span>Keep going even if you make mistakes — fluency and confidence score higher than perfection</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">TCF CLB score chart — what you need</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>CLB 7 Listening: score band 4 (roughly 217–278 points on TCF scale)</li>
-      <li><span class="rn">→</span>CLB 7 Reading: score band 4 (roughly 233–302 points)</li>
-      <li><span class="rn">→</span>CLB 7 Writing: score band 4 — graded by examiner on 4 criteria</li>
-      <li><span class="rn">→</span>CLB 7 Speaking: score band 4 — graded by examiner on fluency, accuracy, range</li>
-      <li><span class="rn">→</span>All 4 sections must reach CLB 7 independently — one weak section pulls down your immigration score</li>
-    </ul>
-  </div>
-
-  <div class="tef-b">
-    <div class="tef-title">Key differences from TEF to remember</div>
-    <ul class="rlist">
-      <li><span class="rn">→</span>TCF is adaptive — question difficulty adjusts to your answers. TEF is fixed difficulty.</li>
-      <li><span class="rn">→</span>TCF has fewer questions (29 vs 50-60) but they count more individually</li>
-      <li><span class="rn">→</span>TCF speaking tasks involve images and documents — TEF is purely spoken topics</li>
-      <li><span class="rn">→</span>TCF results come faster — typically within 15 days</li>
-      <li><span class="rn">→</span>Both valid for IRCC immigration — check which test centre is available in Thunder Bay</li>
-    </ul>
-  </div>
+  <div class="al-b alert">TCF Canada is shorter and adaptive. Both TEF and TCF accepted for immigration. Decide which one you sit by Month 3.</div>
+  <div class="tb"><div class="tt">TEF vs TCF</div><ul class="rl"><li><span class="rn">→</span>Both accepted for Express Entry / PR</li><li><span class="rn">→</span>TEF: longer, fixed difficulty — better if strong in grammar</li><li><span class="rn">→</span>TCF: shorter, adaptive — better if strong in listening + speaking</li><li><span class="rn">→</span>Decide by Month 3, then mock test that format only</li></ul></div>
+  <div class="tb"><div class="tt">TCF Canada — structure</div><ul class="rl"><li><span class="rn">→</span>Listening: 29 questions, ~35 min — adaptive difficulty</li><li><span class="rn">→</span>Reading: 29 questions, ~60 min — adaptive difficulty</li><li><span class="rn">→</span>Writing: 2 tasks, 60 min — message + structured essay</li><li><span class="rn">→</span>Speaking: 3 tasks, ~12 min — recorded</li><li><span class="rn">→</span>Adaptive = harder questions = you're doing well. Don't panic.</li></ul></div>
+  <div class="tb"><div class="tt">Writing — TCF structure</div><ul class="rl"><li><span class="rn">1</span>Task 1: message or letter (60-80 words)</li><li><span class="rn">2</span>Task 2: structured opinion (180-200 words minimum)</li><li><span class="rn">→</span>Connectors: Premièrement · De plus · En outre · Cependant · Pour conclure</li></ul></div>
+  <div class="tb"><div class="tt">Key differences from TEF</div><ul class="rl"><li><span class="rn">→</span>TCF adaptive vs TEF fixed difficulty</li><li><span class="rn">→</span>TCF fewer questions but each counts more</li><li><span class="rn">→</span>TCF speaking uses images — TEF is spoken topics only</li><li><span class="rn">→</span>TCF results in ~15 days. Check test centre in Thunder Bay.</li></ul></div>
 </div>
 
-<!-- ════════ FOCUS SHIELD ════════ -->
+<!-- SHIELD -->
 <div id="shield" class="page">
-  <div class="alert alert-r">Your 3 drift triggers: phone scrolling in the morning, switching to dev work, random tab-hopping. Every rule below kills one of these specifically.</div>
+  <div class="al-r alert">Your 3 drift triggers: phone scrolling, switching to dev work, random tab-hopping.</div>
+  <div class="card"><h3>Against phone scrolling</h3><ul class="rl"><li><span class="rn">→</span>Phone charges in kitchen every night — not bedroom, not desk.</li><li><span class="rn">→</span>Alarm clock wakes you. Phone untouched until 6:30 AM.</li><li><span class="rn">→</span>Urge at 4 AM → say "pas maintenant" out loud → open laptop.</li><li><span class="rn">→</span>Survive the first 10 minutes and you won't want to stop.</li></ul></div>
+  <div class="card"><h3>Against dev work drift</h3><ul class="rl"><li><span class="rn">→</span>One tab open during study — the one you're working in.</li><li><span class="rn">→</span>Dev work after 5:30 PM only. Write it on paper, tape to desk.</li><li><span class="rn">→</span>Dev idea → one line on paper → return. Focus disappears. Ideas don't.</li></ul></div>
+  <div class="card"><h3>Against tab-hopping</h3><ul class="rl"><li><span class="rn">→</span>Night before: open the exact file. Sleep laptop. 4 AM = already there.</li><li><span class="rn">→</span>No quick checks exist. A quick check is 20 minutes minimum.</li><li><span class="rn">→</span>Physical timer — 45 minutes. Not allowed to switch until it rings.</li></ul></div>
+  <div class="card"><h3>The reset — for bad mornings</h3><ul class="rl"><li><span class="rn">→</span>Lost the morning → don't punish yourself. It's gone.</li><li><span class="rn">→</span>Do the evening block. 40 focused minutes still moves you forward.</li><li><span class="rn">→</span>Tonight: prep properly. Tomorrow: 4 AM. Start clean.</li></ul></div>
+</div>
 
-  <div class="card">
-    <h3>Against phone scrolling</h3>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Phone charges in kitchen every night — not bedroom, not desk. Kitchen.</li>
-      <li><span class="rn">→</span>Alarm clock wakes you. Phone has no reason to be touched until 6:30 AM.</li>
-      <li><span class="rn">→</span>When the urge hits at 4 AM — say out loud: "pas maintenant." Open laptop.</li>
-      <li><span class="rn">→</span>First 10 minutes are the danger zone. Survive them and you won't want to stop.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Against switching to dev work</h3>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Only ONE browser tab open during study — the one you are working in.</li>
-      <li><span class="rn">→</span>Dev work, GitHub, everything else — closed before you sit down at 4 AM.</li>
-      <li><span class="rn">→</span>Write on paper and tape to your desk: "Dev work after 5:30 PM only."</li>
-      <li><span class="rn">→</span>Dev idea hits during study → write one line on paper, return immediately. Ideas don't disappear. Focus does.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Against tab-hopping and "quick checks"</h3>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Night before: open exactly the file you need. Sleep the laptop. 4 AM = it's already there.</li>
-      <li><span class="rn">→</span>No quick checks exist. A quick check is 20 minutes minimum. You know this.</li>
-      <li><span class="rn">→</span>Physical timer — set for 45 minutes. Not allowed to switch until it rings.</li>
-      <li><span class="rn">→</span>End every session by writing tomorrow's first sentence on paper. Brain has nothing to negotiate with.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>The reset — for bad mornings like today</h3>
-    <ul class="rlist">
-      <li><span class="rn">→</span>Scrolled and lost the morning → don't punish yourself. It's already gone.</li>
-      <li><span class="rn">→</span>Do the evening block. One focused 40 minutes still moves you forward.</li>
-      <li><span class="rn">→</span>Tonight: prep properly. Tomorrow: 4 AM alarm. Start clean. No guilt.</li>
-    </ul>
+<!-- MODAL -->
+<div class="modal-ov" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div id="modal-content"></div>
+    <button class="modal-close" onclick="closeModal()">close</button>
   </div>
 </div>
 
-<footer>Crunky </footer>
+<footer>Crunky · Pho Umami · Thunder Bay · CLB 7 by Sep 2025 · Francolang</footer>
 </div>
 
 <script>
-function mainShow(id, btn) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.main-tab').forEach(b => b.classList.remove('active'));
+// ── STORAGE ──
+const K={HW:'fw_hw',TD:'fw_td',FC:'fw_sr',STK:'fw_stk',ERR:'fw_err'};
+const sg=k=>{try{return JSON.parse(localStorage.getItem(k))||{}}catch(e){return{}}};
+const ss=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const dk=day=>new Date().toDateString()+'_'+day;
+
+// ── STREAK ──
+function getStreak(){
+  const s=sg(K.STK),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();
+  if(s.last===today||s.last===yest)return s.count||0;
+  return 0;
+}
+function bumpStreak(){
+  const s=sg(K.STK),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();
+  if(s.last===today)return;
+  const count=(s.last===yest)?(s.count||0)+1:1;
+  ss(K.STK,{count,last:today});
+  renderStreak();
+}
+function renderStreak(){
+  const n=getStreak(),el=document.getElementById('streak-num'),sub=document.getElementById('streak-sub');
+  if(el)el.textContent=n;
+  if(sub)sub.textContent=n>0?`${n} day${n===1?'':'s'} in a row`:'study today to start';
+}
+
+// ── HW ──
+const HWS=[{id:'hw1',label:'Week 1 homework',sub:'Submit to teacher'},{id:'hw2',label:'Week 2 homework',sub:'Submit to teacher'},{id:'hw3',label:'Week 3 homework',sub:'Submit to teacher'},{id:'hw4',label:'Week 4 homework',sub:'Submit to teacher'}];
+
+// ── DAYS DATA ──
+const ML={sh:'shadowing',sm:'sentence mining',tib:'teach-it-back'};
+const DAYS={
+mon:{label:'Monday',morning:[{id:'m1',time:'4:15–5:15 AM',label:'Homework — finish and submit',detail:'Check homework above. Any pending goes FIRST before anything else.',ac:'red'},{id:'m2',time:'5:15–6:00 AM',label:'Review class notes + teach-it-back',detail:'Cover slides → recall → uncover → check gaps. Then explain the main grammar point out loud in simple English — 2 minutes. Cannot explain it simply = do not know it yet.',ac:'blue',method:'tib'},{id:'m3',time:'6:00–6:45 AM',label:'RFI — Journal en français facile',detail:'francaisfacile.rfi.fr → one episode → write 3 things you caught.',ac:'amber'},{id:'m4',time:'6:45–7:30 AM',label:'Flashcards + sentence mining',detail:'Open Flashcards tab → review all due cards. Then mine 2 sentences from today\'s RFI or class slide with one unknown word each — add full sentence to deck.',ac:'blue',method:'sm'},{id:'m5',time:'7:30–8:15 AM',label:'Shadowing 5 min + free speaking 5 min',detail:'Shadowing: RFI → one sentence → speak simultaneously, copy rhythm exactly, 3x per sentence. Then 5 free sentences about your day.',ac:'green',method:'sh'}],work:[{id:'m6',time:'At work',label:'French podcast in one ear',detail:'Français Authentique or RFI. Just let it play the whole shift.',ac:'green'}],evening:[{id:'m7',time:'4:50–5:30 PM',label:'Homework → finish and submit',detail:'Monday evening. If not submitted this morning — do it now.',ac:'amber'}]},
+tue:{label:'Tuesday',morning:[{id:'t1',time:'4:15–5:15 AM',label:'Homework — finish and submit',detail:'Check homework above. Pending homework always goes first.',ac:'red'},{id:'t2',time:'5:15–6:00 AM',label:'Review class notes + teach-it-back',detail:'Cover → recall → uncover → check. Rewatch 30-min recording chunk. Then teach-it-back: explain main grammar rule out loud — 2 minutes.',ac:'blue',method:'tib'},{id:'t3',time:'6:00–6:45 AM',label:'RFI — Journal en français facile',detail:'One episode. Write 3 things you caught. Non-negotiable.',ac:'amber'},{id:'t4',time:'6:45–7:30 AM',label:'Flashcards + sentence mining',detail:'Flashcards tab → all due cards. Mine 2 sentences from RFI or class slide.',ac:'blue',method:'sm'},{id:'t5',time:'7:30–8:15 AM',label:'Shadowing 5 min + free speaking 5 min',detail:'Shadowing: RFI → speak simultaneously, same rhythm. 3x per sentence. Then 5 sentences using latest class vocabulary.',ac:'green',method:'sh'}],work:[{id:'t6',time:'At work',label:'French podcast in one ear',detail:'Let it play during prep and cleaning. Ear trains automatically.',ac:'green'}],evening:[{id:'t7',time:'4:50–5:30 PM',label:'Write a paragraph in French',detail:'5–8 sentences on any topic. Self-correct after. Trains TEF writing directly.',ac:'amber'}]},
+wed:{label:'Wednesday',morning:[{id:'w1',time:'4:15–5:15 AM',label:'Homework — finish and submit',detail:'Check homework above. Pending always first.',ac:'red'},{id:'w2',time:'5:15–6:00 AM',label:'Review class notes + teach-it-back',detail:'Active recall: cover → recall → check. Explain shaky point out loud — the explanation IS the learning.',ac:'blue',method:'tib'},{id:'w3',time:'6:00–6:45 AM',label:'RFI — Journal en français facile',detail:'One episode. Write 3 things you caught.',ac:'amber'},{id:'w4',time:'6:45–7:30 AM',label:'Flashcards + sentence mining',detail:'All due cards. Mine 2 sentences from today\'s class slide or RFI.',ac:'blue',method:'sm'},{id:'w5',time:'7:30–8:15 AM',label:'Shadowing 5 min + pronunciation 5 min',detail:'Shadowing: speak simultaneously with RFI, copy sound and rhythm. Then slow pronunciation: say each class word clearly and deliberately.',ac:'green',method:'sh'}],work:[{id:'w6',time:'At work',label:'French podcast in one ear',detail:'InnerFrench or RFI — let it play the whole shift.',ac:'green'}],evening:[{id:'w7',time:'4:50–5:30 PM',label:'Pronunciation + gender drills',detail:'Record yourself saying 5 sentences. Listen back. Then do Gender Drills tab — 5 tricky nouns.',ac:'amber'}]},
+thu:{label:'Thursday',morning:[{id:'th1',time:'4:15–5:15 AM',label:'Homework — finish and submit',detail:'Check homework above. Any pending — do it now.',ac:'red'},{id:'th2',time:'5:15–6:00 AM',label:'Review class notes + teach-it-back',detail:'Active recall. Then teach one grammar rule out loud — 2 minutes, simple language, no notes. If you can say it simply, it is yours.',ac:'blue',method:'tib'},{id:'th3',time:'6:00–6:45 AM',label:'RFI — Journal en français facile',detail:'One episode. Write 3 things you caught.',ac:'amber'},{id:'th4',time:'6:45–7:30 AM',label:'Flashcards + sentence mining',detail:'All due cards. Mine 2 sentences. Add full sentence to deck.',ac:'blue',method:'sm'},{id:'th5',time:'7:30–8:15 AM',label:'Shadowing 5 min + grammar speaking 5 min',detail:'Shadowing: RFI → speak simultaneously. Then make 5 sentences using this week\'s grammar point out loud.',ac:'green',method:'sh'}],work:[{id:'th6',time:'At work',label:'French podcast in one ear',detail:'Your ear is getting trained even without focusing.',ac:'green'}],evening:[{id:'th7',time:'4:50–5:30 PM',label:'Gender drills (Drills tab)',detail:'Go to Drills tab → Gender drills. 5 tricky nouns. 2 minutes. Massively important for TEF writing marks.',ac:'amber'}]},
+fri:{label:'Friday',morning:[{id:'f1',time:'4:15–5:15 AM',label:'Homework — all submitted before weekend',detail:'All homework must be submitted before Saturday. Check above.',ac:'red'},{id:'f2',time:'5:15–6:00 AM',label:'Weak spots review + teach-it-back',detail:'Focus only on what was shaky this week. Then teach back the one thing you struggled with most.',ac:'blue',method:'tib'},{id:'f3',time:'6:00–6:45 AM',label:'RFI — Journal en français facile',detail:'One episode. Write 3 things you caught.',ac:'amber'},{id:'f4',time:'6:45–7:30 AM',label:'Flashcards — full deck review',detail:'Review everything in your deck today. Also mine 2 sentences from this week\'s material.',ac:'blue',method:'sm'},{id:'f5',time:'7:30–8:15 AM',label:'Shadowing 5 min + free speaking 5 min',detail:'Shadowing: best RFI episode from this week. Speak simultaneously. Then speak freely for 5 minutes — no script, just flow.',ac:'green',method:'sh'}],work:[{id:'f6',time:'At work',label:'French podcast in one ear',detail:'End the week with French in your ear all shift.',ac:'green'}],evening:[{id:'f7',time:'4:50–5:30 PM',label:'French YouTube — no pressure',detail:'French subtitles only (not English). Suggestions: Piece of French, Easy French.',ac:'amber'}]},
+sat:{label:'Saturday — Class Day',morning:[{id:'s1',time:'4:15–6:00 AM',label:'Pre-class review + teach-it-back',detail:'Review last class. Cover → recall → check. Explain main grammar point out loud — confirm you know it before class.',ac:'blue',method:'tib'},{id:'s2',time:'6:00–6:45 AM',label:'RFI + Flashcards — light',detail:'One episode. Quick card review. Save energy for class.',ac:'amber'},{id:'s3',time:'6:45 AM',label:'Get ready, eat well',detail:'Brain needs fuel for 2 hours of active learning.',ac:'muted'}],work:[{id:'s4',time:'During class',label:'Write every correction in different colour',detail:'Corrections are more valuable than notes. Speak up. Participate. Every question = free speaking practice.',ac:'purple'}],evening:[{id:'s5',time:'After class (30 min max)',label:'Post-class notes + teach-it-back',detail:'Expand notes while fresh. Add own examples. Explain hardest concept out loud 2 minutes. Then rest.',ac:'amber',method:'tib'}]},
+sun:{label:'Sunday — Class Day',morning:[{id:'su1',time:'4:15–6:00 AM',label:"Review Saturday's class + teach-it-back",detail:"Active recall of Saturday content. Teach back Saturday's main grammar point. Walk into Sunday's class with Saturday locked in.",ac:'blue',method:'tib'},{id:'su2',time:'6:00–6:45 AM',label:'RFI + Flashcards — light',detail:'One episode. Quick review. Save energy.',ac:'amber'}],work:[{id:'su3',time:'During class',label:'Write corrections — speak up and participate',detail:'Same discipline as Saturday. Corrections in different colour. Every question = speaking practice.',ac:'purple'}],evening:[{id:'su4',time:'After class (1 hour)',label:'Weekly review',detail:'What did I master? What is shaky? Write 3 weak spots for next week.',ac:'green'},{id:'su5',time:'Before sleep',label:'Night prep for Monday',detail:"Write Monday's first task on paper. Open laptop to homework. Phone to kitchen. Alarm set.",ac:'muted'}]}
+};
+
+let curDay=null;
+function pickDay(day,btn){document.querySelectorAll('.dp').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curDay=day;renderDay(day);}
+function renderDay(day){
+  const d=DAYS[day],hw=sg(K.HW),td=sg(K.TD),dk2=dk(day),done=id=>(td[dk2]||{})[id]===true;
+  const allHW=HWS.every(h=>hw[h.id]);
+  const allT=[...(d.morning||[]),...(d.work||[]),...(d.evening||[])];
+  const dc=allT.filter(t=>done(t.id)).length,pct=allT.length>0?Math.round(dc/allT.length*100):0;
+  let h='<div class="hw-ban"><div class="hw-bt">HOMEWORK — tap to mark done</div>';
+  HWS.forEach(hw2=>{const id=!!hw[hw2.id];h+=`<div class="hw-it" onclick="tHW('${hw2.id}')"><div class="hw-ck ${id?'done':''}"></div><div class="hw-tx ${id?'done':''}">${hw2.label} <span style="font-size:11px;color:var(--mu)">— ${hw2.sub}</span></div></div>`;});
+  h+='</div>';
+  if(allHW)h+='<div class="al-g alert">All homework submitted. Block 1 → use for active recall instead.</div>';
+  h+=`<div class="prog-row"><span style="font-weight:500">${d.label}</span><span style="color:var(--gn)">${dc}/${allT.length} done</span></div><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+  h+=`<button class="reset-btn" onclick="resetDay('${day}')">reset today</button>`;
+  const sec=(title,items)=>{
+    if(!items||!items.length)return'';
+    let s=`<div class="todo-sec"><div class="sec-t">${title}</div>`;
+    items.forEach(t=>{
+      const dn=done(t.id);
+      const mt=t.method?`<span class="mtag" onclick="event.stopPropagation();openModal('${t.method}')">${ML[t.method]} ?</span>`:'';
+      s+=`<div class="ti ac-${t.ac} ${dn?'done-item':''}" onclick="tTD('${t.id}','${day}')"><div class="tc ${dn?'done':''}"></div><div class="tl"><div class="t-time">${t.time}</div><div class="t-label">${t.label}</div><div class="t-detail">${t.detail}</div>${mt}</div></div>`;
+    });
+    return s+'</div>';
+  };
+  const wt=(day==='sat'||day==='sun')?'Class':'At work — passive';
+  h+=sec('Morning block — 4:15 to 8:15 AM',d.morning)+sec(wt,d.work)+sec('Evening — 4:50 to 5:30 PM',d.evening);
+  document.getElementById('planner').innerHTML=h;
+}
+function tHW(id){const hw=sg(K.HW);hw[id]=!hw[id];ss(K.HW,hw);if(curDay)renderDay(curDay);}
+function tTD(id,day){const td=sg(K.TD),dk2=dk(day);if(!td[dk2])td[dk2]={};td[dk2][id]=!td[dk2][id];ss(K.TD,td);bumpStreak();renderDay(day);}
+function resetDay(day){const td=sg(K.TD);delete td[dk(day)];ss(K.TD,td);renderDay(day);}
+
+// ── FLASHCARD DATA ──
+const FC=[
+  {id:'c1a',topic:'Class 1 · Alphabet',cat:'c1',sentence:'Le chef prépare le bouillon depuis le matin.',keyword:'bouillon',meaning:'The chef has been preparing the broth since morning.',pron:'boo·yohn — silent final N',variation:'Je prépare un bouillon de poulet.',noun:{w:'bouillon',a:'le',g:'m'}},
+  {id:'c1b',topic:'Class 1 · Alphabet',cat:'c1',sentence:"J'aime parler français tous les jours.",keyword:'parler',meaning:'I love speaking French every day.',pron:'par·LAY — final -ER sounds like AY',variation:'Il parle très bien anglais.',noun:null},
+  {id:'c1c',topic:'Class 1 · Alphabet',cat:'c1',sentence:"L'hiver est froid à Thunder Bay.",keyword:'hiver',meaning:'Winter is cold in Thunder Bay.',pron:'ee·VAIR — H is silent',variation:'En hiver, je travaille tôt le matin.',noun:{w:'hiver',a:'le',g:'m'}},
+  {id:'c1d',topic:'Class 1 · Combos',cat:'c1',sentence:'Moi, je travaille dans un restaurant.',keyword:'moi',meaning:'Me, I work in a restaurant.',pron:'MOI → MWA — OI sounds like WA',variation:'Et toi, tu travailles où ?',noun:null},
+  {id:'c1e',topic:'Class 1 · Combos',cat:'c1',sentence:'Nous avons un problème avec la soupe.',keyword:'soupe',meaning:'We have a problem with the soup.',pron:'SOUP — OU sounds like OO',variation:'La soupe est chaude et délicieuse.',noun:{w:'soupe',a:'la',g:'f'}},
+  {id:'c1f',topic:'Class 1 · Combos',cat:'c1',sentence:"L'eau est essentielle pour la santé.",keyword:'eau',meaning:'Water is essential for health.',pron:'EAU → OH — three letters, one sound',variation:"J'ai besoin d'eau après le travail.",noun:{w:'eau',a:"l'",g:'f'}},
+  {id:'c1g',topic:'Class 1 · Combos',cat:'c1',sentence:'Il fait chaud en juillet en France.',keyword:'chaud',meaning:'It is hot in July in France.',pron:'CHAUD → SHO — AU sounds like OH',variation:"En été, il fait très chaud.",noun:null},
+  {id:'c1h',topic:'Class 1 · Combos',cat:'c1',sentence:'La nation célèbre sa fête nationale.',keyword:'nation',meaning:'The nation celebrates its national holiday.',pron:'na·SYON — TION always sounds like SYON',variation:'Quelle nation parle français ?',noun:{w:'nation',a:'la',g:'f'}},
+  {id:'c1i',topic:'Class 1 · Accents',cat:'c1',sentence:"L'été dernier, j'ai voyagé au Canada.",keyword:'été',meaning:'Last summer, I travelled to Canada.',pron:'ay·TAY — accent aigu = AY sound',variation:"J'adore l'été à Thunder Bay.",noun:{w:'été',a:"l'",g:'m'}},
+  {id:'c1j',topic:'Class 1 · Accents',cat:'c1',sentence:'Mon père parle trois langues.',keyword:'père',meaning:'My father speaks three languages.',pron:'PAIR — accent grave è = EH sound',variation:'Mon père travaille le soir.',noun:{w:'père',a:'le',g:'m'}},
+  {id:'c1k',topic:'Class 1 · Pronouns',cat:'c1',sentence:'Je suis cuisinier dans un restaurant vietnamien.',keyword:'suis',meaning:'I am a cook in a Vietnamese restaurant.',pron:'JE SWEE — être conjugated',variation:'Je suis de Népal.',noun:null},
+  {id:'c1l',topic:'Class 1 · Pronouns',cat:'c1',sentence:'Tu vas bien aujourd\'hui ?',keyword:'Tu',meaning:'Are you doing well today?',pron:'TU — informal you, for friends and family only',variation:'Tu travailles demain ?',noun:null},
+  {id:'c1m',topic:'Class 1 · Pronouns',cat:'c1',sentence:'Vous avez une réservation ce soir ?',keyword:'Vous',meaning:'Do you have a reservation tonight?',pron:'VOUS — formal you, always use with customers and boss',variation:'Vous parlez anglais ?',noun:null},
+  {id:'c1n',topic:'Class 1 · Pronouns',cat:'c1',sentence:'On mange ensemble ce soir ?',keyword:'On',meaning:'Shall we eat together tonight?',pron:'ON = we in spoken French — almost never use nous in conversation',variation:'On va travailler maintenant.',noun:null},
+  {id:'c1o',topic:'Class 1 · Liaison',cat:'c1',sentence:'Les enfants adorent le pho.',keyword:'Les_enfants',meaning:'The children love pho.',pron:'lez-ahn·FAHN — S of les sounds like Z before vowel',variation:'Les enfants jouent dehors.',noun:null},
+  {id:'c1p',topic:'Class 1 · Liaison',cat:'c1',sentence:'Nous écoutons de la musique française.',keyword:'Nous_écoutons',meaning:'We listen to French music.',pron:'nouz-ay·KOO·ton — S of nous sounds like Z before vowel',variation:'Nous apprenons le français.',noun:null},
+  {id:'gd1',topic:'Gender · Tricky',cat:'gender',sentence:'Le problème est difficile à résoudre.',keyword:'problème',meaning:'The problem is difficult to solve.',pron:'pro·BLEHM — masculine despite -ème ending',variation:"C'est un grand problème.",noun:{w:'problème',a:'le',g:'m'}},
+  {id:'gd2',topic:'Gender · Tricky',cat:'gender',sentence:'La crème est dans le réfrigérateur.',keyword:'crème',meaning:'The cream is in the refrigerator.',pron:'KREMM — feminine, exception to -ème rule',variation:'Je mets de la crème dans la soupe.',noun:{w:'crème',a:'la',g:'f'}},
+  {id:'gd3',topic:'Gender · Tricky',cat:'gender',sentence:"Le musée d'art est ouvert le dimanche.",keyword:'musée',meaning:'The art museum is open on Sundays.',pron:'moo·ZAY — masculine despite ending in -ée',variation:'Je visite le musée avec ma famille.',noun:{w:'musée',a:'le',g:'m'}},
+  {id:'gd4',topic:'Gender · Tricky',cat:'gender',sentence:'La nuit est calme et silencieuse.',keyword:'nuit',meaning:'The night is calm and silent.',pron:'NWEE — feminine',variation:'Je travaille parfois la nuit.',noun:{w:'nuit',a:'la',g:'f'}},
+];
+
+let fcDeck=[],fcIdx=0,fcFlipped=false,fcFilter='all';
+
+function setFcFilter(f,btn){
+  fcFilter=f;
+  document.querySelectorAll('.fc-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  initFc();
+}
+
+function getDueCards(){
+  const sr=sg(K.FC),now=Date.now();
+  return FC.filter(c=>{
+    if(fcFilter==='new')return !sr[c.id];
+    if(fcFilter==='hard'){const r=sr[c.id];return r&&r.hard>0;}
+    if(fcFilter==='c1')return c.cat==='c1';
+    if(fcFilter==='gender')return c.cat==='gender';
+    const r=sr[c.id];
+    return !r||r.due<=now;
+  });
+}
+
+function initFc(){
+  fcDeck=[...getDueCards()];
+  for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}
+  fcIdx=0;fcFlipped=false;renderFc();
+}
+
+function renderFc(){
+  const out=document.getElementById('fc-out');
+  if(!out)return;
+  if(!fcDeck.length){out.innerHTML='<div class="fc-empty">No cards due with this filter.<br>Try "All due" or come back tomorrow.</div>';return;}
+  if(fcIdx>=fcDeck.length){out.innerHTML=`<div class="fc-empty">Session complete! ${fcDeck.length} card${fcDeck.length===1?'':'s'} reviewed.<br><br>Check Progress tab to see your stats.</div><button onclick="initFc()" class="gd-retry">Restart session</button>`;bumpStreak();return;}
+  const c=fcDeck[fcIdx],sr=sg(K.FC)[c.id]||{};
+  const hlSentence=c.sentence.replace(new RegExp(c.keyword.replace('_',' '),'gi'),'<span class="fc-kw">$&</span>');
+  out.innerHTML=`<div class="fc-counter">${fcIdx+1} / ${fcDeck.length} · ${sr.hard?sr.hard+' hard':''}</div>
+<div class="fc-card" onclick="flipFc()">
+  <div class="fc-inner${fcFlipped?' flipped':''}">
+    <div class="fc-front">
+      <div class="fc-topic">${c.topic}</div>
+      <div class="fc-sentence">${hlSentence}</div>
+      <div class="fc-tap">tap to reveal</div>
+    </div>
+    <div class="fc-back">
+      <div class="fc-meaning">${c.meaning}</div>
+      <div class="fc-pron"><span class="fc-kw">${c.keyword.replace('_',' ')}</span> · ${c.pron}</div>
+      ${c.noun?`<div class="fc-gender"><span class="gender-tag ${c.noun.g==='m'?'masc':'fem'}">${c.noun.a} ${c.noun.w}</span> · ${c.noun.g==='m'?'masculine':'feminine'}</div>`:''}
+      <div class="fc-var">${c.variation}</div>
+    </div>
+  </div>
+</div>
+${fcFlipped?`<div class="diff-btns">
+  <button class="diff-hard" onclick="rateFc('${c.id}',1)">Hard — 1 day</button>
+  <button class="diff-ok" onclick="rateFc('${c.id}',2)">OK — 3 days</button>
+  <button class="diff-easy" onclick="rateFc('${c.id}',3)">Easy — 7 days</button>
+</div>`:''}`;
+}
+
+function flipFc(){if(!fcFlipped){fcFlipped=true;renderFc();}}
+function rateFc(id,rating){
+  const sr=sg(K.FC),r=sr[id]||{interval:1,due:0,total:0,hard:0};
+  r.total++;
+  if(rating===1){r.hard=(r.hard||0)+1;r.interval=1;}
+  else if(rating===2){r.interval=Math.min((r.interval||1)+1,14);}
+  else{r.interval=Math.min((r.interval||1)*2,21);}
+  r.due=Date.now()+r.interval*86400000;
+  sr[id]=r;ss(K.FC,sr);
+  if(rating===1){const e=sg(K.ERR);e[id]=(e[id]||0)+1;ss(K.ERR,e);}
+  fcIdx++;fcFlipped=false;bumpStreak();renderFc();
+}
+
+// ── GENDER DRILLS ──
+const GD=[
+  {word:'problème',article:'le',eng:'problem',tip:'Words ending in -ème are usually masculine'},
+  {word:'crème',article:'la',eng:'cream',tip:'Exception: crème is feminine'},
+  {word:'musée',article:'le',eng:'museum',tip:'Masculine despite -ée ending'},
+  {word:'journée',article:'la',eng:'day (full day)',tip:'Feminine — la journée (vs le jour)'},
+  {word:'nuit',article:'la',eng:'night',tip:'Feminine — la nuit'},
+  {word:'bruit',article:'le',eng:'noise',tip:'Masculine — le bruit'},
+  {word:'fois',article:'la',eng:'time (occurrence)',tip:'Feminine — une fois (vs le mois)'},
+  {word:'mois',article:'le',eng:'month',tip:'Masculine — le mois'},
+  {word:'livre',article:'le',eng:'book',tip:'le livre = book / la livre = pound weight'},
+  {word:'silence',article:'le',eng:'silence',tip:'Masculine despite -ence ending'},
+  {word:'chance',article:'la',eng:'luck',tip:'Feminine — -ance words usually feminine'},
+  {word:'repas',article:'le',eng:'meal',tip:'Masculine — le repas'},
+  {word:'voix',article:'la',eng:'voice',tip:'Feminine — la voix'},
+  {word:'bras',article:'le',eng:'arm',tip:'Masculine — le bras'},
+  {word:'image',article:'une',eng:'image / picture',tip:'Feminine — une image'},
+];
+let gdDeck=[],gdIdx=0,gdScore=0,gdTotal=0;
+
+function initGd(){
+  gdDeck=[...GD];
+  for(let i=gdDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[gdDeck[i],gdDeck[j]]=[gdDeck[j],gdDeck[i]];}
+  gdDeck=gdDeck.slice(0,5);
+  gdIdx=0;gdScore=0;gdTotal=0;renderGd();
+}
+
+function renderGd(){
+  const out=document.getElementById('gd-out');
+  if(!out)return;
+  if(gdIdx>=gdDeck.length){
+    out.innerHTML=`<div class="gd-done">Score: ${gdScore}/${gdTotal}<br>${gdScore===gdTotal?'Perfect! 🎉':'Keep practising — gender takes time.'}</div><button onclick="initGd()" class="gd-retry">Next 5 nouns</button>`;
+    bumpStreak();return;
+  }
+  const c=gdDeck[gdIdx];
+  out.innerHTML=`<div class="gd-score">${gdScore}/${gdTotal} · ${gdDeck.length-gdIdx} left</div>
+<div class="gd-eng">${c.eng}</div>
+<div class="gd-word">${c.word}</div>
+<div class="gd-choices">
+  <button class="gd-btn" onclick="guessGd('le',this)">le</button>
+  <button class="gd-btn" onclick="guessGd('la',this)">la</button>
+  <button class="gd-btn" onclick="guessGd('une',this)">une</button>
+</div>
+<div id="gd-fb"></div>`;
+}
+
+function guessGd(guess){
+  const c=gdDeck[gdIdx];gdTotal++;
+  const ok=guess===c.article;
+  if(ok)gdScore++;
+  document.querySelectorAll('.gd-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById('gd-fb');
+  if(fb)fb.innerHTML=ok
+    ?`<div class="gd-correct">✓ Correct! ${c.article} ${c.word}${c.tip?'<br><small>'+c.tip+'</small>':''}</div>`
+    :`<div class="gd-wrong">✗ It is ${c.article} ${c.word}${c.tip?'<br><small>'+c.tip+'</small>':''}</div>`;
+  setTimeout(()=>{gdIdx++;renderGd();},1600);
+}
+
+// ── GRAMMAR DRILLS ──
+const GRAM=[
+  {prompt:'Je ___ français. (parler)',answer:'parle',hint:'-ER verbs: je parle, tu parles, il parle'},
+  {prompt:'Tu ___ bien ? (aller)',answer:'vas',hint:'aller is irregular: je vais, tu vas, il va'},
+  {prompt:'Elle ___ une chanson. (chanter)',answer:'chante',hint:'-ER verbs: elle chante'},
+  {prompt:'Nous ___ au restaurant. (être)',answer:'sommes',hint:'être: je suis, tu es, nous sommes'},
+  {prompt:'Vous ___ une réservation ? (avoir)',answer:'avez',hint:'avoir: j\'ai, tu as, vous avez'},
+  {prompt:'Chat → /___/ (silent letter)',answer:'sha',hint:'Final T is silent: chat = /sha/'},
+  {prompt:'Les enfants → liaison → /lez___/',answer:'enfants',hint:'S of les sounds like Z before vowel: lez-enfants'},
+  {prompt:'Manger ends in -er → sounds like ___',answer:'manje',hint:'-ER endings always sound like AY: man-JAY'},
+  {prompt:'Tu es mon ami. (formal version using vous)',answer:'Vous êtes mon ami',hint:'Tu = informal, Vous = formal. Verb changes too.'},
+  {prompt:"L'accent aigu (é) makes the sound ___",answer:'ay',hint:'é = AY sound, like in café, été, bébé'},
+];
+let gramIdx=0,gramScore=0;
+
+function initGram(){gramIdx=0;gramScore=0;renderGram();}
+function renderGram(){
+  const out=document.getElementById('gram-out');
+  if(!out)return;
+  if(gramIdx>=GRAM.length){
+    out.innerHTML=`<div class="gd-done">Score: ${gramScore}/${GRAM.length}<br>${gramScore>=8?'Excellent! Strong foundation.':gramScore>=6?'Good — review the ones you missed.':'Keep drilling — these are essential.'}</div><button onclick="initGram()" class="gd-retry">Try again</button>`;
+    bumpStreak();return;
+  }
+  const q=GRAM[gramIdx];
+  out.innerHTML=`<div class="gd-score">${gramIdx+1}/${GRAM.length} · score: ${gramScore}</div>
+<div class="gram-prompt">${q.prompt}</div>
+<input id="gram-inp" class="gram-input" placeholder="type your answer..." autocomplete="off" onkeydown="if(event.key==='Enter')checkGram()">
+<button class="gram-submit" onclick="checkGram()">Check answer</button>
+<button class="gram-submit" style="background:transparent;color:var(--mu);border-color:var(--bd)" onclick="revealGram()">Reveal</button>
+<div id="gram-fb"></div>`;
+  setTimeout(()=>{const el=document.getElementById('gram-inp');if(el)el.focus();},50);
+}
+function checkGram(){
+  const q=GRAM[gramIdx],inp=document.getElementById('gram-inp');
+  if(!inp)return;
+  const val=inp.value.trim().toLowerCase(),ok=val===q.answer.toLowerCase();
+  if(ok)gramScore++;
+  const fb=document.getElementById('gram-fb');
+  if(fb)fb.innerHTML=ok
+    ?`<div class="gd-correct">✓ ${q.answer} — ${q.hint}</div>`
+    :`<div class="gd-wrong">✗ Answer: ${q.answer} — ${q.hint}</div>`;
+  setTimeout(()=>{gramIdx++;renderGram();},2000);
+}
+function revealGram(){
+  const q=GRAM[gramIdx],fb=document.getElementById('gram-fb');
+  if(fb)fb.innerHTML=`<div class="gd-reveal">${q.answer} — ${q.hint}</div>`;
+  setTimeout(()=>{gramIdx++;renderGram();},2000);
+}
+
+// ── PROGRESS ──
+function renderProgress(){
+  const sr=sg(K.FC),err=sg(K.ERR),streak=getStreak();
+  const mastered=Object.values(sr).filter(r=>(r.interval||0)>=7).length;
+  const due=getDueCount();
+  const total=Object.values(sr).reduce((a,r)=>a+(r.total||0),0);
+  const topErr=Object.entries(err).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  let h=`<div class="prog-grid">
+    <div class="prog-stat"><span class="prog-num" style="color:var(--am)">${streak}</span><span class="prog-label">day streak</span></div>
+    <div class="prog-stat"><span class="prog-num" style="color:var(--gn)">${mastered}</span><span class="prog-label">cards mastered</span></div>
+    <div class="prog-stat"><span class="prog-num" style="color:var(--bl)">${due}</span><span class="prog-label">cards due today</span></div>
+    <div class="prog-stat"><span class="prog-num" style="color:var(--pu)">${total}</span><span class="prog-label">total reviews</span></div>
+  </div>`;
+  if(topErr.length){
+    h+='<div class="top-missed"><h3>Most missed — review these first</h3><ul class="rl">';
+    topErr.forEach(([id,count])=>{const c=FC.find(x=>x.id===id);if(c)h+=`<li><span class="rn" style="color:var(--rd)">${count}×</span>${c.keyword.replace('_',' ')} — <em style="font-size:12px">${c.sentence.substring(0,45)}...</em></li>`;});
+    h+='</ul></div>';
+  }
+  h+='<div class="card"><h3>Progress tips</h3><ul class="rl"><li><span class="rn">→</span>Mastered = interval ≥ 7 days. Target 50+ cards mastered by Month 3.</li><li><span class="rn">→</span>Streak: study at least one todo or 5 flashcards to count a day.</li><li><span class="rn">→</span>Most missed cards: review these in every Flashcards session.</li><li><span class="rn">→</span>Due today: do all due cards before adding new ones.</li></ul></div>';
+  const out=document.getElementById('prog-out');
+  if(out)out.innerHTML=h;
+}
+function getDueCount(){
+  const sr=sg(K.FC),now=Date.now();
+  return FC.filter(c=>{const r=sr[c.id];return !r||r.due<=now;}).length;
+}
+
+// ── FOCUS MODE ──
+let focusOn=false;
+function toggleFocus(){
+  focusOn=!focusOn;
+  document.body.classList.toggle('focus-mode',focusOn);
+  const btn=document.getElementById('focus-btn');
+  if(btn)btn.textContent=focusOn?'Exit focus':'Focus mode';
+}
+
+// ── MODAL DATA ──
+const MD={
+  sh:{title:'Shadowing',sub:'Top 1% speaking technique — forces you to think in French',secs:[{h:'What it is',p:'You listen to native French and speak at the exact same time — not after, not before. You copy the rhythm, speed, and sound of the speaker.'},{h:'Why it works',p:"Your brain cannot translate from English when it is already speaking. It forces French as one natural act — exactly what TEF speaking demands under pressure."},{h:'How to do it',items:['Open your RFI episode from this morning','Find one sentence — press play','Speak simultaneously with the speaker. Same speed. Same rhythm.','Do not worry about meaning — focus on sound and flow','Repeat the same sentence 3 times, then move to the next']},{h:'Common mistakes',p:'Reading while shadowing — just listen. Starting too fast — use slow RFI first. Stopping when you make mistakes — always keep going.'}]},
+  sm:{title:'Sentence mining',sub:'Top 1% vocabulary — words in context stick 4× better',secs:[{h:'What it is',p:'Instead of adding single words to flashcards, you pull a real sentence from your RFI or class slide that has one unknown word — and add the whole sentence.'},{h:'Why it works',p:'You learn how the word is used — grammar, tone, context — not just its dictionary definition. Brain retains it 4× better.'},{h:'How to build a card',items:['Find a sentence with exactly ONE word you do not know','Front of card: the full sentence','Back: translation + highlighted keyword + pronunciation','Add one variation sentence using the same word']},{h:'Example card',p:'Front: Le chef prépare le bouillon. — Back: The chef prepares the broth. New word: bouillon [boo-yohn] = broth/stock.'},{h:'Common mistake',p:'Mining sentences with 3+ unknown words — too hard. Always one new word per sentence.'}]},
+  tib:{title:'Teach-it-back',sub:'Top 1% grammar — expose your hidden gaps instantly',secs:[{h:'What it is',p:'After reviewing a grammar rule, close your notes and explain it out loud in simple terms — as if teaching it to someone who knows nothing.'},{h:'Why it works',p:"If you cannot explain it simply, you do not know it. Instantly exposes the exact gaps that cost you marks in TEF writing and speaking."},{h:'How to do it',items:['Review your class notes on one grammar point','Close the notes completely','Say out loud: "Okay so this rule works like this..."','Explain it in 2–3 sentences. Simple words. No jargon.','Stuck? That gap is exactly what to re-read. Then try again.']},{h:'Good example',p:'"Passé composé is for finished past actions. You use avoir or être as a helper, then the past participle. J\'ai mangé = I ate. The tricky ones use être — those are DR MRS VANDERTRAMP."'},{h:'Time needed',p:'Just 2 minutes per grammar point after every active recall session.'}]},
+  ar:{title:'Active recall',sub:'The foundation — how memory is actually built',secs:[{h:'What it is',p:'Cover your notes. Try to write or say everything from memory. Uncover and check. The act of trying to remember — even failing — is what builds long-term memory.'},{h:'Why it works',p:'Re-reading feels productive but barely works. Active recall is 3× more effective for long-term retention. Every failed recall attempt makes the next one stronger.'},{h:'How to do it',items:['Cover your class slide completely','Write or say everything you remember from memory','Uncover and check — highlight what you missed','Focus the next session only on what you missed','Repeat until you can recall everything without looking']},{h:'Common mistake',p:'Checking too quickly — you need to struggle for at least 10 seconds before uncovering. The struggle is the learning.'}]},
+  gm:{title:'Gender mastery — le / la / les',sub:'Masculine and feminine — critical for TEF marks',secs:[{h:'What it is',p:'Every French noun has a gender — masculine (le/un) or feminine (la/une). Wrong gender = wrong article = lost marks in TEF writing and speaking.'},{h:'Why it matters',p:'Articles must agree with noun gender. Adjectives must agree. Object pronouns (le/la) depend on gender. Getting gender wrong triggers 3+ errors per sentence.'},{h:'Rules to memorize',items:['Vowels and some endings: learn as you go — no reliable rule','Masculine endings: -age (le garage), -ment (le moment), -eau (le bateau)','Feminine endings: -tion (la nation), -ance (la chance), -ette (la cassette)','EXCEPTIONS exist — always learn the article with the noun','When you add a flashcard, always include the article']},{h:'Daily practice',p:'Use the Gender Drills tab — 5 tricky nouns per day. In 5 months you will know 750+ nouns with their correct gender.'}]}
+};
+
+function openModal(key){
+  const d=MD[key];if(!d)return;
+  let h=`<div class="modal-title">${d.title}</div><div class="modal-sub">${d.sub}</div>`;
+  d.secs.forEach(s=>{
+    h+=`<div class="msec"><div class="msec-t">${s.h}</div>`;
+    if(s.p)h+=`<p>${s.p}</p>`;
+    if(s.items)s.items.forEach((it,i)=>{h+=`<div class="ex">${i+1}. ${it}</div>`;});
+    h+='</div>';
+  });
+  document.getElementById('modal-content').innerHTML=h;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+
+// ── NAV ──
+function mShow(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.mt').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='progress')renderProgress();
+  if(id==='flashcards'&&!fcDeck.length)initFc();
+  if(id==='drills'&&!gdDeck.length)initGd();
+}
+function sShow(id,btn,scope){
+  const pg=document.getElementById(scope);
+  pg.querySelectorAll('.sv').forEach(v=>v.classList.remove('active'));
+  pg.querySelectorAll('.st').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
 }
-function subShow(id, btn, scope) {
-  const page = document.getElementById(scope);
-  page.querySelectorAll('.sub-view').forEach(v => v.classList.remove('active'));
-  page.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
+
+// ── INIT ──
+window.onload=function(){
+  renderStreak();
+  const map=['sun','mon','tue','wed','thu','fri','sat'],today=map[new Date().getDay()];
+  const order=['mon','tue','wed','thu','fri','sat','sun'],idx=order.indexOf(today);
+  const btns=document.querySelectorAll('.dp'),pick=idx>=0?idx:0;
+  btns[pick].classList.add('active');curDay=order[pick];renderDay(curDay);
+};
 </script>
 </body>
 </html>
